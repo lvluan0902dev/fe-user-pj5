@@ -8,6 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SearchPopupComponent } from './components/search-popup/search-popup.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ModalSignInComponent } from './components/modal-sign-in/modal-sign-in.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -23,7 +24,8 @@ import { ModalSignInComponent } from './components/modal-sign-in/modal-sign-in.c
     ModalSignInComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,
