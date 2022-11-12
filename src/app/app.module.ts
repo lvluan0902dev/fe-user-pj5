@@ -10,6 +10,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { SafeHtmlPipe } from './handlers/safe-html/safe-html.pipe';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     AppRoutingModule,
     SharedModule,
     ToastModule,
+    HttpClientModule
   ],
   providers: [
     MessageService,
