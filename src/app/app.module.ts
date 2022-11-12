@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { SafeHtmlPipe } from './handlers/safe-html/safe-html.pipe';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,13 @@ import { SafeHtmlPipe } from './handlers/safe-html/safe-html.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ToastModule,
   ],
-  providers: [],
+  providers: [
+    MessageService,
+    ConfirmationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
