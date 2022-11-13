@@ -26,7 +26,6 @@
               "src/styles.css",
               "src/assets/vendors/fontawesome-pro-5/css/all.css",
               "src/assets/vendors/bootstrap-select/css/bootstrap-select.min.css",
-              "src/assets/vendors/slick/slick.min.css",
               "src/assets/vendors/magnific-popup/magnific-popup.min.css",
               "src/assets/vendors/jquery-ui/jquery-ui.min.css",
               "src/assets/vendors/animate.css",
@@ -35,14 +34,15 @@
               "src/assets/vendors/fonts/tuesday-night/stylesheet.min.css",
               "src/assets/vendors/fonts/butler/stylesheet.min.css",
               "src/assets/vendors/fonts/a-antara-distance/stylesheet.min.css",
-              "src/assets/css/themes.css"
+              "src/assets/css/themes.css",
+              "./node_modules/slick-carousel/slick/slick.scss",
+              "./node_modules/slick-carousel/slick/slick-theme.scss"
             ],
             "scripts": [
               "src/assets/vendors/jquery.min.js",
               "src/assets/vendors/jquery-ui/jquery-ui.min.js",
               "src/assets/vendors/bootstrap/bootstrap.bundle.js",
               "src/assets/vendors/bootstrap-select/js/bootstrap-select.min.js",
-              "src/assets/vendors/slick/slick.min.js",
               "src/assets/vendors/waypoints/jquery.waypoints.min.js",
               "src/assets/vendors/counter/countUp.js",
               "src/assets/vendors/magnific-popup/jquery.magnific-popup.min.js",
@@ -50,7 +50,8 @@
               "src/assets/vendors/jparallax/TweenMax.min.js",
               "src/assets/vendors/mapbox-gl/mapbox-gl.js",
               "src/assets/vendors/isotope/isotope.js",
-              "src/assets/js/theme.js"
+              "src/assets/js/theme.js",
+              "./node_modules/slick-carousel/slick/slick.min.js"
             ]
           },
           "configurations": {

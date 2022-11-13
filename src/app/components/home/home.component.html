@@ -1,23 +1,24 @@
 <main id="content">
     <section>
-        <div class="slick-slider mx-0 slider"
-            data-slick-options='{"slidesToShow": 1,"infinite":true,"autoplay":true,"dots":false,"arrows":false,"fade":true,"cssEase":"ease-in-out","speed":600}' id="slick">
-            <div class="box px-0" *ngFor="let slider of sliders">
-                <div class="bg-img-cover-center py-12 pt-lg-18 pb-lg-17"
-                    [style]="'background-image: url(' + url + slider.image_path + ');'">
-                    <div class="container container-xl py-7">
-                        <div class="text-center" style="max-width: 454px" data-animate="fadeInDown">
-                            <p class="text-primary fs-56 lh-113 mb-6 custom-font">For You!</p>
-                            <h1 class="mb-4 fs-56 lh-128">{{slider.title}}</h1>
-                            <p class="fs-18 lh-166 mb-7" style="max-width: 454px" [innerHtml]="slider.content"></p>
-                        </div>
-                        <div class="text-center" style="max-width: 454px" data-animate="fadeInUp">
-                            <a [href]="slider.link"
-                                class="btn btn-secondary rounded bg-hover-primary border-0" target="_blank">Mua ngay</a>
+        <div class="slick-slider mx-0 slider">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
+                <div class="box px-0" ngxSlickItem *ngFor="let slider of sliders" class="slide">
+                    <div class="bg-img-cover-center py-12 pt-lg-18 pb-lg-17"
+                        [style]="'background-image: url(' + url + slider.image_path + ');'">
+                        <div class="container container-xl py-7">
+                            <div class="text-center" style="max-width: 454px" data-animate="fadeInDown">
+                                <p class="text-primary fs-56 lh-113 mb-6 custom-font">For You!</p>
+                                <h1 class="mb-4 fs-56 lh-128">{{slider.title}}</h1>
+                                <p class="fs-18 lh-166 mb-7" style="max-width: 454px" [innerHtml]="slider.content"></p>
+                            </div>
+                            <div class="text-center" style="max-width: 454px" data-animate="fadeInUp">
+                                <a [href]="slider.link" class="btn btn-secondary rounded bg-hover-primary border-0"
+                                    target="_blank">Mua ngay</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </ngx-slick-carousel>
         </div>
     </section>
     <section class="pt-11 pb-xl-9 pb-5">
@@ -128,12 +129,11 @@
                         </div>
                         <div class="card-body pt-4 text-center">
                             <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
-                                <span
-                                    class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
+                                <span class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
                                 <span>$29.00</span>
                             </p>
-                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
-                                    href="product-detail-01.html">Facial cleanser</a></h2>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a href="product-detail-01.html">Facial
+                                    cleanser</a></h2>
                             <div class="d-flex align-items-center justify-content-center flex-wrap">
                                 <ul class="list-inline mb-0 lh-1">
                                     <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
@@ -255,8 +255,8 @@
                             <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
                                 <span>$29.00</span>
                             </p>
-                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
-                                    href="product-detail-01.html">Coffee Bean Caffeine Eye Cream</a></h2>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a href="product-detail-01.html">Coffee
+                                    Bean Caffeine Eye Cream</a></h2>
                             <div class="d-flex align-items-center justify-content-center flex-wrap">
                                 <ul class="list-inline mb-0 lh-1">
                                     <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
@@ -315,12 +315,11 @@
                         </div>
                         <div class="card-body pt-4 text-center">
                             <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
-                                <span
-                                    class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
+                                <span class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
                                 <span>$29.00</span>
                             </p>
-                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
-                                    href="product-detail-01.html">Coffee Bean Caffeine Eye Cream</a></h2>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a href="product-detail-01.html">Coffee
+                                    Bean Caffeine Eye Cream</a></h2>
                             <div class="d-flex align-items-center justify-content-center flex-wrap">
                                 <ul class="list-inline mb-0 lh-1">
                                     <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
@@ -380,8 +379,8 @@
                             <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
                                 <span>$29.00</span>
                             </p>
-                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a
-                                    href="product-detail-01.html">Facial cleanser</a></h2>
+                            <h2 class="card-title fs-15 font-weight-500 mb-2"><a href="product-detail-01.html">Facial
+                                    cleanser</a></h2>
                             <div class="d-flex align-items-center justify-content-center flex-wrap">
                                 <ul class="list-inline mb-0 lh-1">
                                     <li class="list-inline-item fs-12 text-primary mr-0"><i class="fas fa-star"></i>
@@ -508,8 +507,7 @@
                                                     <use xlink:href="#icon-shopping-bag-open-light"></use>
                                                 </svg>
                                             </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left"
-                                                title="Quick view"
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
                                                 class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
                                                 <span data-toggle="modal" data-target="#quick-view">
                                                     <svg class="icon icon-eye-light fs-24">
@@ -568,7 +566,8 @@
                         <div class="col-md-4 col-sm-6 mb-3" data-animate="fadeInLeft">
                             <div class="card border-0 product">
                                 <div class="position-relative">
-                                    <img src="../../../assets/images/product-02.jpg" alt="Bio-shroom Rejuvenating Serum">
+                                    <img src="../../../assets/images/product-02.jpg"
+                                        alt="Bio-shroom Rejuvenating Serum">
                                     <div class="card-img-overlay d-flex p-3">
                                         <div>
                                         </div>
@@ -580,8 +579,7 @@
                                                     <use xlink:href="#icon-shopping-bag-open-light"></use>
                                                 </svg>
                                             </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left"
-                                                title="Quick view"
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
                                                 class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
                                                 <span data-toggle="modal" data-target="#quick-view">
                                                     <svg class="icon icon-eye-light fs-24">
@@ -638,7 +636,8 @@
                         <div class="col-md-4 col-sm-6 mb-3" data-animate="fadeInLeft">
                             <div class="card border-0 product">
                                 <div class="position-relative">
-                                    <img src="../../../assets/images/product-06.jpg" alt="Coffee Bean Caffeine Eye Cream">
+                                    <img src="../../../assets/images/product-06.jpg"
+                                        alt="Coffee Bean Caffeine Eye Cream">
                                     <div class="card-img-overlay d-flex p-3">
                                         <div>
                                         </div>
@@ -650,8 +649,7 @@
                                                     <use xlink:href="#icon-shopping-bag-open-light"></use>
                                                 </svg>
                                             </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left"
-                                                title="Quick view"
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
                                                 class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
                                                 <span data-toggle="modal" data-target="#quick-view">
                                                     <svg class="icon icon-eye-light fs-24">
@@ -708,7 +706,8 @@
                         <div class="col-md-4 col-sm-6 mb-3" data-animate="fadeInLeft">
                             <div class="card border-0 product">
                                 <div class="position-relative">
-                                    <img src="../../../assets/images/product-03.jpg" alt="Coffee Bean Caffeine Eye Cream">
+                                    <img src="../../../assets/images/product-03.jpg"
+                                        alt="Coffee Bean Caffeine Eye Cream">
                                     <div class="card-img-overlay d-flex p-3">
                                         <div>
                                             <span class="badge badge-warning">New</span>
@@ -721,8 +720,7 @@
                                                     <use xlink:href="#icon-shopping-bag-open-light"></use>
                                                 </svg>
                                             </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left"
-                                                title="Quick view"
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
                                                 class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
                                                 <span data-toggle="modal" data-target="#quick-view">
                                                     <svg class="icon icon-eye-light fs-24">
@@ -791,8 +789,7 @@
                                                     <use xlink:href="#icon-shopping-bag-open-light"></use>
                                                 </svg>
                                             </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left"
-                                                title="Quick view"
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
                                                 class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
                                                 <span data-toggle="modal" data-target="#quick-view">
                                                     <svg class="icon icon-eye-light fs-24">
@@ -851,7 +848,8 @@
                         <div class="col-md-4 col-sm-6 mb-3" data-animate="fadeInLeft">
                             <div class="card border-0 product">
                                 <div class="position-relative">
-                                    <img src="../../../assets/images/product-08.jpg" alt="Coffee Bean Caffeine Eye Cream">
+                                    <img src="../../../assets/images/product-08.jpg"
+                                        alt="Coffee Bean Caffeine Eye Cream">
                                     <div class="card-img-overlay d-flex p-3">
                                         <div>
                                             <span class="badge badge-warning">New</span>
@@ -864,8 +862,7 @@
                                                     <use xlink:href="#icon-shopping-bag-open-light"></use>
                                                 </svg>
                                             </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left"
-                                                title="Quick view"
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Quick view"
                                                 class="preview ml-auto d-md-flex align-items-center justify-content-center cursor-pointer text-secondary bg-white hover-white bg-hover-secondary w-48px h-48px rounded-circle mb-2 d-none">
                                                 <span data-toggle="modal" data-target="#quick-view">
                                                     <svg class="icon icon-eye-light fs-24">
@@ -993,11 +990,11 @@
                 <div class="box">
                     <div class="card border-0" data-animate="fadeInUp">
                         <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                            <img src="../../../assets/images/post-01.jpg" alt="Which foundation formula is right for your skin?">
+                            <img src="../../../assets/images/post-01.jpg"
+                                alt="Which foundation formula is right for your skin?">
                         </a>
                         <div class="card-body p-0 text-left">
-                            <ul
-                                class="list-inline mt-6 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
+                            <ul class="list-inline mt-6 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
                                 <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
                                 <li class="list-inline-item pr-3">Jan 19, 2021</li>
                             </ul>
@@ -1011,11 +1008,11 @@
                 <div class="box">
                     <div class="card border-0" data-animate="fadeInUp">
                         <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                            <img src="../../../assets/images/post-05.jpg" alt="How to Plop Hair for Bouncy, Beautiful Curls">
+                            <img src="../../../assets/images/post-05.jpg"
+                                alt="How to Plop Hair for Bouncy, Beautiful Curls">
                         </a>
                         <div class="card-body p-0 text-left">
-                            <ul
-                                class="list-inline mt-6 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
+                            <ul class="list-inline mt-6 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
                                 <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
                                 <li class="list-inline-item pr-3">Jan 19, 2021</li>
                             </ul>
@@ -1029,11 +1026,11 @@
                 <div class="box">
                     <div class="card border-0" data-animate="fadeInUp">
                         <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                            <img src="../../../assets/images/post-06.jpg" alt="Which foundation formula is right for your skin?">
+                            <img src="../../../assets/images/post-06.jpg"
+                                alt="Which foundation formula is right for your skin?">
                         </a>
                         <div class="card-body p-0 text-left">
-                            <ul
-                                class="list-inline mt-6 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
+                            <ul class="list-inline mt-6 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
                                 <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
                                 <li class="list-inline-item pr-3">Jan 19, 2021</li>
                             </ul>
