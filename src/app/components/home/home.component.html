@@ -1,7 +1,7 @@
 <main id="content">
     <section>
-        <div class="slick-slider mx-0 slider">
-            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
+        <div class="slick-slider mx-0 slider dot-lg-0">
+            <ngx-slick-carousel class="carousel" [config]="slideConfig">
                 <div class="box px-0" ngxSlickItem *ngFor="let slider of sliders" class="slide">
                     <div class="bg-img-cover-center py-12 pt-lg-18 pb-lg-17"
                         [style]="'background-image: url(' + url + slider.image_path + ');'">
@@ -1050,53 +1050,24 @@
         <div class="container container-xl">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3" data-animate="fadeInUp">
-                    <div class="slick-slider mx-0 custom-arrows dot-lg-0"
-                        data-slick-options='{"slidesToShow": 1,"infinite":true,"autoplay":true,"dots":true,"arrows":true,"fade":false,"cssEase":"ease-in-out","speed":600}'>
-                        <div class="box px-0">
-                            <div class="card border-0 text-center">
-                                <div class="card-body px-3 py-0">
-                                    <img src="../../../assets/images/testimonial-12.png" alt="testimonial-12"
-                                        class="mb-7 w-auto mx-auto">
-                                    <p class="card-text mb-8 fs-34 font-weight-500 text-primary mx-auto lh-13"
-                                        style="max-width: 660px">
-                                        “Amazing product. The results are so transformative in texture and my face
-                                        feels plump and healthy.“
-                                    </p>
-                                    <h4 class="fs-15 font-weight-bold text-uppercase letter-spacing-01">Kathleen C.
-                                    </h4>
+                    <div class="slick-slider mx-0 custom-arrows dot-lg-0">
+                        <ngx-slick-carousel class="carousel" [config]="slideConfig">
+                            <div class="box px-0" ngxSlickItem *ngFor="let testimonial of testimonials">
+                                <div class="card border-0 text-center">
+                                    <div class="card-body px-3 py-0">
+                                        <img [src]="url + testimonial.image_path" [alt]="testimonial.image_name"
+                                            class="mb-7 w-auto mx-auto">
+                                        <p class="card-text mb-8 fs-34 font-weight-500 text-primary mx-auto lh-13"
+                                            style="max-width: 660px">
+                                            “{{testimonial.content}}“
+                                        </p>
+                                        <h4 class="fs-15 font-weight-bold text-uppercase letter-spacing-01">
+                                            {{testimonial.name}}
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="box px-0">
-                            <div class="card border-0 text-center">
-                                <div class="card-body px-3 py-0">
-                                    <img src="../../../assets/images/testimonial-10.png" alt="testimonial-12"
-                                        class="mb-7 w-auto mx-auto">
-                                    <p class="card-text mb-8 fs-34 font-weight-500 text-primary mx-auto lh-13"
-                                        style="max-width: 660px">
-                                        “Amazing product. The results are so transformative in texture and my face
-                                        feels plump and healthy.“
-                                    </p>
-                                    <h4 class="fs-15 font-weight-bold text-uppercase letter-spacing-01">Kathleen C.
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box px-0">
-                            <div class="card border-0 text-center">
-                                <div class="card-body px-3 py-0">
-                                    <img src="../../../assets/images/testimonial-11.png" alt="testimonial-12"
-                                        class="mb-7 w-auto mx-auto">
-                                    <p class="card-text mb-8 fs-34 font-weight-500 text-primary mx-auto lh-13"
-                                        style="max-width: 660px">
-                                        “Amazing product. The results are so transformative in texture and my face
-                                        feels plump and healthy.“
-                                    </p>
-                                    <h4 class="fs-15 font-weight-bold text-uppercase letter-spacing-01">Kathleen C.
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
+                        </ngx-slick-carousel>
                     </div>
                 </div>
             </div>

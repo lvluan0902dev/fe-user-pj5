@@ -20,4 +20,8 @@ export class HomeService {
   public getAllSlider() {
     return this.httpService.get('front/get-all-slider');
   }
+
+  public getAllTestimonial() {
+    return this.httpService.get('front/get-all-testimonial');
+  }
 }
