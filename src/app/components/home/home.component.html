@@ -1,6 +1,7 @@
 <main id="content">
     <section>
-        <div class="slick-slider mx-0 slider dot-lg-0">
+        <div class="slick-slider mx-0 slider"
+            data-slick-options='{"slidesToShow": 1,"infinite":true,"autoplay":true,"dots":false,"arrows":false,"fade":true,"cssEase":"ease-in-out","speed":600}'>
             <ngx-slick-carousel class="carousel" [config]="slideConfig">
                 <div class="box px-0" ngxSlickItem *ngFor="let slider of sliders" class="slide">
                     <div class="bg-img-cover-center py-12 pt-lg-18 pb-lg-17"
@@ -1050,7 +1051,7 @@
         <div class="container container-xl">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3" data-animate="fadeInUp">
-                    <div class="slick-slider mx-0 custom-arrows dot-lg-0">
+                    <div class="slick-slider mx-0 custom-arrows" data-slick-options='{"slidesToShow": 1,"infinite":true,"autoplay":true,"dots":false,"arrows":false,"fade":true,"cssEase":"ease-in-out","speed":600}'>
                         <ngx-slick-carousel class="carousel" [config]="slideConfig">
                             <div class="box px-0" ngxSlickItem *ngFor="let testimonial of testimonials">
                                 <div class="card border-0 text-center">
@@ -1083,10 +1084,11 @@
                     <p class="fs-18 font-weight-600 text-primary text-md-right mb-0">@vnbeauty</p>
                 </div>
                 <div class="col-12">
-                    <div class="slick-slider mx-n2">
+                    <div class="slick-slider mx-n2" data-slick-options='{"dots":false}'>
                         <ngx-slick-carousel class="carousel" [config]="slideConfig_beautyImage">
-                            <div ngxSlickItem class="box px-2" data-animate="fadeInUp" *ngFor="let beautyImage of beautyImages">
-                                <a href="#" class="hover-zoom-in hover-shine d-block">
+                            <div ngxSlickItem class="box px-2" data-animate="fadeInUp"
+                                *ngFor="let beautyImage of beautyImages">
+                                <a href="javascript:;" class="hover-zoom-in hover-shine d-block">
                                     <img [src]="url + beautyImage.image_path" [alt]="url + beautyImage.image_name">
                                 </a>
                             </div>

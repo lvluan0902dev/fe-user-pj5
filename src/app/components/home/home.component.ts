@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     "slidesToShow": 1,
     "infinite": true,
     "autoplay": true,
-    "dots": false,
+    "dots": true,
     "arrows": false,
     "fade": true,
     "cssEase": "ease-in-out",
