@@ -1077,39 +1077,20 @@
         <div class="container container-xl">
             <div class="row align-items-end">
                 <div class="col-md-6 mb-md-6">
-                    <h2 class="fs-34 mb-0">On the Gram</h2>
+                    <h2 class="fs-34 mb-0">Hình ảnh đẹp</h2>
                 </div>
                 <div class="col-md-6 mb-7 mb-md-6">
-                    <p class="fs-18 font-weight-600 text-primary text-md-right mb-0">@Glowing_cosmetics</p>
+                    <p class="fs-18 font-weight-600 text-primary text-md-right mb-0">@vnbeauty</p>
                 </div>
                 <div class="col-12">
-                    <div class="slick-slider mx-n2"
-                        data-slick-options='{"slidesToShow": 5,"infinite":false,"autoplay":true,"dots":false,"arrows":false,"responsive":[{"breakpoint": 1366,"settings": {"slidesToShow":5}},{"breakpoint": 992,"settings": {"slidesToShow":4}},{"breakpoint": 768,"settings": {"slidesToShow": 3}},{"breakpoint": 576,"settings": {"slidesToShow": 2}}]}'>
-                        <div class="box px-2" data-animate="fadeInUp">
-                            <a href="#" class="hover-zoom-in hover-shine d-block">
-                                <img src="../../../assets/images/instagram-01.jpg" alt="Instagram">
-                            </a>
-                        </div>
-                        <div class="box px-2" data-animate="fadeInUp">
-                            <a href="#" class="hover-zoom-in hover-shine d-block">
-                                <img src="../../../assets/images/instagram-02.jpg" alt="Instagram">
-                            </a>
-                        </div>
-                        <div class="box px-2" data-animate="fadeInUp">
-                            <a href="#" class="hover-zoom-in hover-shine d-block">
-                                <img src="../../../assets/images/instagram-03.jpg" alt="Instagram">
-                            </a>
-                        </div>
-                        <div class="box px-2" data-animate="fadeInUp">
-                            <a href="#" class="hover-zoom-in hover-shine d-block">
-                                <img src="../../../assets/images/instagram-04.jpg" alt="Instagram">
-                            </a>
-                        </div>
-                        <div class="box px-2" data-animate="fadeInUp">
-                            <a href="#" class="hover-zoom-in hover-shine d-block">
-                                <img src="../../../assets/images/instagram-05.jpg" alt="Instagram">
-                            </a>
-                        </div>
+                    <div class="slick-slider mx-n2">
+                        <ngx-slick-carousel class="carousel" [config]="slideConfig_beautyImage">
+                            <div ngxSlickItem class="box px-2" data-animate="fadeInUp" *ngFor="let beautyImage of beautyImages">
+                                <a href="#" class="hover-zoom-in hover-shine d-block">
+                                    <img [src]="url + beautyImage.image_path" [alt]="url + beautyImage.image_name">
+                                </a>
+                            </div>
+                        </ngx-slick-carousel>
                     </div>
                 </div>
             </div>

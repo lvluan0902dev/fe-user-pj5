@@ -24,4 +24,8 @@ export class HomeService {
   public getAllTestimonial() {
     return this.httpService.get('front/get-all-testimonial');
   }
+
+  public getAllBeautyImage() {
+    return this.httpService.get('front/get-all-beauty-image');
+  }
 }
