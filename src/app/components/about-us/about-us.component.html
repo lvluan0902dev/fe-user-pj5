@@ -22,7 +22,9 @@
                         I think
                         it would rob her of something. We live in an era of globalization and the era of the woman.
                         Never in
-                        the history of the world have women. <span class="text-secondary">Với đội ngũ nhân viên chuyên nghiệp VNBeauty hứa hẹn luôn mang đến cho khách hàng những trải nghiệm mới và tốt nhất.</span>
+                        the history of the world have women. <span class="text-secondary">Với đội ngũ nhân viên chuyên
+                            nghiệp VNBeauty hứa hẹn luôn mang đến cho khách hàng những trải nghiệm mới và tốt
+                            nhất.</span>
                     </p>
                     <div class="row">
                         <div class="col-md-6" data-animate="fadeInUp">
@@ -60,7 +62,8 @@
                         </div>
                         <div class="card-body px-0 pt-6 mt-1 pb-0">
                             <h3 class="fs-24 mb-3">Đảm bảo tinh khiết</h3>
-                            <p class="mb-0">Tất cả các công thức đều tuân theo các tiêu chuẩn nghiêm ngặt về độ tinh khiết và không bao giờ chứa các thành phần độc hại</p>
+                            <p class="mb-0">Tất cả các công thức đều tuân theo các tiêu chuẩn nghiêm ngặt về độ tinh
+                                khiết và không bao giờ chứa các thành phần độc hại</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +74,8 @@
                         </div>
                         <div class="card-body px-0 pt-6 mt-1 pb-0">
                             <h3 class="fs-24 mb-3">Không độc hại</h3>
-                            <p class="mb-0">Sản phẩm được làm từ nguyên liệu thiên nhiên, không chứa các chất hoá học</p>
+                            <p class="mb-0">Sản phẩm được làm từ nguyên liệu thiên nhiên, không chứa các chất hoá học
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -112,96 +116,36 @@
             <p class="mb-8 mx-auto" style="max-width: 610px;" data-animate="fadeInUp">Not cool. Our tightly knitted
                 fabric holds its form after repeated wear. Plus, Aldays dress up or down, no prob. So you can wear
                 them all day. Get it?</p>
-            <div class="slick-slider"
-                data-slick-options='{"slidesToShow": 4,"dots":false,"arrows":false,"responsive":[{"breakpoint": 1200,"settings": {"slidesToShow": 3,"arrows":false,"dots":true}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":true}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":true}}]}'>
-                <div class="box">
-                    <div class="card border-0 hover-change-image" data-animate="fadeInUp">
-                        <div class="position-relative overflow-hidden">
-                            <img class="card-img" src="../../../assets/images/our-team-01.jpg" alt="Slava Fedutik">
-                            <ul
-                                class="list-inline text-center card-img-overlay top-auto mb-0 py-2 bg-border-color hover-image hover-bottom-to-top">
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-facebook"></i></a></li>
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="fs-18"><i
-                                            class="fab fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="card-body px-0">
-                            <h4 class="fs-20">Slava Fedutik</h4>
-                            <p class="card-text">Founder, Chief Creative</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="card border-0 hover-change-image" data-animate="fadeInUp">
-                        <div class="position-relative overflow-hidden">
-                            <img class="card-img" src="../../../assets/images/our-team-02.jpg" alt="Jennifer C.">
-                            <ul
-                                class="list-inline text-center card-img-overlay top-auto mb-0 py-2 bg-border-color hover-image hover-bottom-to-top">
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-facebook"></i></a></li>
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="fs-18"><i
-                                            class="fab fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="card-body px-0">
-                            <h4 class="fs-20">Jennifer C.</h4>
-                            <p class="card-text">Founder, Chief Creative</p>
+            <div class="slick-slider" data-slick-options='{"dots":false}'>
+                <ngx-slick-carousel class="carousel" [config]="slideConfig"
+                    data-slick-options='{"slidesToShow": 4,"dots":false,"arrows":false,"responsive":[{"breakpoint": 1200,"settings": {"slidesToShow": 3,"arrows":false,"dots":true}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":true}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":true}}]}'>
+                    <div class="box" ngxSlickItem *ngFor="let staff of staffs">
+                        <div class="card border-0 hover-change-image" data-animate="fadeInUp">
+                            <div class="position-relative overflow-hidden">
+                                <img class="card-img" [src]="url + staff.image_path" [alt]="staff.image_name">
+                                <ul *ngIf="staff.link_linked_in != '' || staff.link_facebook != '' || staff.link_instagram != '' || staff.link_youtube != ''"
+                                    class="list-inline text-center card-img-overlay top-auto mb-0 py-2 bg-border-color hover-image hover-bottom-to-top">
+                                    <li *ngIf="staff.link_linked_in != ''" class="list-inline-item mr-6"><a
+                                            [href]="staff.link_linked_in" target="_blank" class="fs-18"><i
+                                                class="fab fa-linkedin"></i></a></li>
+                                    <li *ngIf="staff.link_facebook != ''" class="list-inline-item mr-6"><a
+                                            [href]="staff.link_facebook" target="_blank" class="fs-18"><i
+                                                class="fab fa-facebook"></i></a></li>
+                                    <li *ngIf="staff.link_instagram != ''" class="list-inline-item mr-6"><a
+                                            [href]="staff.link_instagram" target="_blank" class="fs-18"><i
+                                                class="fab fa-instagram"></i></a></li>
+                                    <li *ngIf="staff.link_youtube != ''" class="list-inline-item"><a
+                                            [href]="staff.link_youtube" target="_blank" class="fs-18"><i class="fab fa-youtube"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body px-0">
+                                <h4 class="fs-20">{{staff.name}}</h4>
+                                <p class="card-text">{{staff.position}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="box">
-                    <div class="card border-0 hover-change-image" data-animate="fadeInUp">
-                        <div class="position-relative overflow-hidden">
-                            <img class="card-img" src="../../../assets/images/our-team-03.jpg" alt="Valeriia Nadopta">
-                            <ul
-                                class="list-inline text-center card-img-overlay top-auto mb-0 py-2 bg-border-color hover-image hover-bottom-to-top">
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-facebook"></i></a></li>
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="fs-18"><i
-                                            class="fab fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="card-body px-0">
-                            <h4 class="fs-20">Valeriia Nadopta</h4>
-                            <p class="card-text">Founder, Chief Creative</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="card border-0 hover-change-image" data-animate="fadeInUp">
-                        <div class="position-relative overflow-hidden">
-                            <img class="card-img" src="../../../assets/images/our-team-04.jpg" alt="Jonh Henry">
-                            <ul
-                                class="list-inline text-center card-img-overlay top-auto mb-0 py-2 bg-border-color hover-image hover-bottom-to-top">
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-facebook"></i></a></li>
-                                <li class="list-inline-item mr-6"><a href="#" class="fs-18"><i
-                                            class="fab fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#" class="fs-18"><i
-                                            class="fab fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="card-body px-0">
-                            <h4 class="fs-20">Jonh Henry</h4>
-                            <p class="card-text">Founder, Chief Creative</p>
-                        </div>
-                    </div>
-                </div>
+                </ngx-slick-carousel>
             </div>
         </div>
     </section>
