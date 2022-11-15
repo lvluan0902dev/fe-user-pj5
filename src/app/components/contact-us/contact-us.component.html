@@ -9,56 +9,33 @@
                 <div class="col-md-4 mb-md-0 mb-8" data-animate="fadeInUp">
                     <div class="media">
                         <div class="icon pr-lg-6 pr-5">
-                            <svg class="icon icon-box-07 fs-40 text-primary">
-                                <use xlink:href="#icon-box-07"></use>
-                            </svg>
+                            <i class="fas fa-map-marker-alt" style="font-size: 35px;"></i>
                         </div>
                         <div class="media-body">
-                            <h3 class="fs-20 mb-3">Address</h3>
-                            <p class="fs-16 mb-2">3245 Abbot Kinney BLVD – <br />
-                                PH Venice, CA 124</p>
-                            <p class="fs-16 mb-5">76 East Houston Street<br>
-                                New York City</p>
-                            <a href="#"
-                                class="btn btn-link p-0 border-bottom border-0 border-secondary rounded-0">Get
-                                Direction</a>
+                            <h3 class="fs-20 mb-3">Địa chỉ</h3>
+                            <p [innerHtml]="contactSettings[0].content"></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-md-0 mb-8" data-animate="fadeInUp">
                     <div class="media">
                         <div class="icon pr-lg-6 pr-5">
-                            <svg class="icon icon-box-05 fs-40 text-primary">
-                                <use xlink:href="#icon-box-05"></use>
-                            </svg>
+                            <i class="fas fa-phone-volume" style="font-size: 35px;"></i>
                         </div>
                         <div class="media-body">
-                            <h3 class="fs-20 mb-3">Contact</h3>
-                            <p class="mb-1 fs-16">Mobile:<span class="text-secondary"> 068 26589 996</span></p>
-                            <p class="mb-1 fs-16">Hotline:<span class="text-secondary"> 1900 26886</span></p>
-                            <p class="mb-0 fs-16">E-mail: hello@grace.com</p>
+                            <h3 class="fs-20 mb-3">Số điện thoại</h3>
+                            <p [innerHtml]="contactSettings[1].content"></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-md-0 mb-8" data-animate="fadeInUp">
                     <div class="media">
                         <div class="icon pr-lg-6 pr-5">
-                            <svg class="icon icon-box-06 fs-40 text-primary">
-                                <use xlink:href="#icon-box-06"></use>
-                            </svg>
+                            <i class="far fa-envelope" style="font-size: 35px;"></i>
                         </div>
                         <div class="media-body">
-                            <h3 class="fs-20 mb-3">Hour of operation</h3>
-                            <dl class="d-flex mb-0">
-                                <dt class="pr-1 fs-16 text-secondary font-weight-500" style="width: 110px">Mon –
-                                    Fri:</dt>
-                                <dd class="mb-0"> 08:30 – 20:00</dd>
-                            </dl>
-                            <dl class="d-flex mb-0">
-                                <dt class="pr-1 fs-16 text-secondary font-weight-500" style="width: 110px">Sat &
-                                    Sun:</dt>
-                                <dd class="mb-0"> 09:30 – 21:30</dd>
-                            </dl>
+                            <h3 class="fs-20 mb-3">Email</h3>
+                            <p [innerHtml]="contactSettings[2].content"></p>
                         </div>
                     </div>
                 </div>
@@ -67,12 +44,7 @@
     </section>
     <section class="pt-md-11 pt-6 pt-lg-13">
         <div class="container">
-            <div id="map" class="mapbox-gl map-point-animate" data-animate="fadeInUp" style="height: 530px"
-                data-mapbox-access-token="pk.eyJ1IjoiZzVvbmxpbmUiLCJhIjoiY2t1bWY4NzBiMWNycDMzbzZwMnI5ZThpaiJ9.ZifefVtp4anluFUbAMxAXg"
-                data-mapbox-options='{"center":[-106.53671888774004, 35.12362056187368],"setLngLat":[-106.53671888774004, 35.12362056187368],"zoom":5,"style":"mapbox://styles/mapbox/light-v10"}'
-                data-mapbox-marker='[{"position":[-102.53671888774004, 38.12362056187368],"className":"marker","backgroundImage":"images/marker.png","backgroundRepeat":"no-repeat","width":"70px","height":"70px"}
-         ,{"position":[-109.03671888774004, 33.02362056187368],"className":"marker","backgroundImage":"images/marker.png","backgroundRepeat":"no-repeat","width":"70px","height":"70px"}]'>
-            </div>
+            <div [innerHtml]="contactSettings[3].content | safeHtml"></div>
         </div>
     </section>
     <section class="pt-lg-12 pb-lg-13 pt-10 pb-11 text-center mx-auto" style="max-width: 750px">
