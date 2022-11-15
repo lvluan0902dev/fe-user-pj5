@@ -12,6 +12,7 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { HttpClientModule } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     HomeComponent,
     ShopComponent,
     AboutUsComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
