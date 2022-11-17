@@ -11,7 +11,6 @@ import { SafeHtmlPipe } from './handlers/safe-html/safe-html.pipe';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { HttpClientModule } from '@angular/common/http';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +30,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     ToastModule,
     HttpClientModule,
-    SlickCarouselModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
