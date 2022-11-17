@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Staff } from 'src/app/models/staff/staff.model';
 import { AboutUsService } from 'src/app/services/about-us/about-us.service';
 import { environment } from 'src/environments/environment';
+
+declare var themeInit: any;
 
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.css']
 })
-export class AboutUsComponent implements OnInit {
+export class AboutUsComponent implements OnInit, AfterViewInit {
   public url = environment.url + '/';
   public staffs: Staff[] = [];
   public slideConfig = {
@@ -25,6 +27,10 @@ export class AboutUsComponent implements OnInit {
     private aboutUsService: AboutUsService
   ) {
     this.title.setTitle('Giới thiệu');
+  }
+
+  ngAfterViewInit(): void {
+    themeInit();
   }
 
   ngOnInit(): void {

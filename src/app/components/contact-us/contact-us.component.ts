@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ContactSetting } from 'src/app/models/contact-setting/contact-setting.model';
 import { ContactUsService } from 'src/app/services/contact-us/contact-us.service';
 import { environment } from 'src/environments/environment';
 
+declare var themeInit: any;
+
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
-export class ContactUsComponent implements OnInit {
+export class ContactUsComponent implements OnInit, AfterViewInit {
   public url = environment.url + '/';
   public contactSettings: ContactSetting[] = [];
   public form = this.fb.group({
@@ -28,6 +30,10 @@ export class ContactUsComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.title.setTitle('Liên hệ');
+  }
+
+  ngAfterViewInit(): void {
+    themeInit();
   }
 
   ngOnInit(): void {
