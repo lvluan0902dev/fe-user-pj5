@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ContactSetting } from 'src/app/models/contact-setting/contact-setting.model';
 import { ContactUsService } from 'src/app/services/contact-us/contact-us.service';
-import { ToastService } from 'src/app/services/toast/toast.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -20,12 +19,13 @@ export class ContactUsComponent implements OnInit {
     content: ['', [Validators.required]],
   });
   public submitted: boolean = false;
+  public successMessage: string = '';
+  public errorMessage: string = '';
 
   constructor(
     private title: Title,
     private contactUsService: ContactUsService,
-    private fb: FormBuilder,
-    private toastService: ToastService
+    private fb: FormBuilder
   ) {
     this.title.setTitle('Liên hệ');
   }
@@ -57,11 +57,11 @@ export class ContactUsComponent implements OnInit {
 
       this.contactUsService.sendMessage(formData).subscribe((response) => {
         if (response.success == 1) {
-          this.toastService.success('Thành công', response.message);
+          this.successMessage = response.message;
           this.submitted = false;
           this.form.reset();
         } else {
-          this.toastService.error('Lỗi', response.message);
+          this.errorMessage = response.message;
         }
       });
     } else {
