@@ -35,8 +35,7 @@
               "src/assets/vendors/fonts/butler/stylesheet.min.css",
               "src/assets/vendors/fonts/a-antara-distance/stylesheet.min.css",
               "src/assets/css/themes.css",
-              "./node_modules/slick-carousel/slick/slick.scss",
-              "./node_modules/slick-carousel/slick/slick-theme.scss"
+              "src/assets/vendors/slick/slick.min.css"
             ],
             "scripts": [
               "src/assets/vendors/jquery.min.js",
@@ -51,7 +50,7 @@
               "src/assets/vendors/mapbox-gl/mapbox-gl.js",
               "src/assets/vendors/isotope/isotope.js",
               "src/assets/js/theme.js",
-              "./node_modules/slick-carousel/slick/slick.min.js"
+              "src/assets/vendors/slick/slick.min.js"
             ]
           },
           "configurations": {
