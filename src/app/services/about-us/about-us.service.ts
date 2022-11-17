@@ -4,7 +4,6 @@ import { HttpService } from '../http/http.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
   })
 };
 
