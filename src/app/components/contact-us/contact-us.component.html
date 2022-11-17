@@ -1,10 +1,8 @@
 <main id="content">
     <section class="pt-9">
         <div class="container">
-            <h2 class="text-center mb-6" data-animate="fadeInUp">Keep In Touch with Us</h2>
-            <p class="text-center mb-9 mx-auto fs-18" style="max-width: 590px" data-animate="fadeInUp">We’re talking
-                about clean beauty gift sets, of course – and we’ve got a bouquet of beauties for yourself or
-                someone you love.</p>
+            <h2 class="text-center mb-6" data-animate="fadeInUp">Hãy liên hệ với chúng tôi</h2>
+            <p class="text-center mb-9 mx-auto fs-18" style="max-width: 590px" data-animate="fadeInUp">Để được tư vấn và nhận những ưu đãi về sản phẩm</p>
             <div class="row">
                 <div class="col-md-4 mb-md-0 mb-8" data-animate="fadeInUp">
                     <div class="media">
@@ -49,26 +47,36 @@
     </section>
     <section class="pt-lg-12 pb-lg-13 pt-10 pb-11 text-center mx-auto" style="max-width: 750px">
         <div class="container">
-            <h2 class="fs-34 lh-129 mb-7" data-animate="fadeInUp">Sent A Message</h2>
-            <form data-animate="fadeInUp">
+            <h2 class="fs-34 lh-129 mb-7" data-animate="fadeInUp">Gửi tin nhắn</h2>
+            <form data-animate="fadeInUp" [formGroup]="form">
                 <div class="row mb-6">
                     <div class="col-sm-6 mb-6 mb-sm-0">
-                        <input type="text" class="form-control border-0" placeholder="Name" required>
+                        <input type="text" class="form-control border-0" placeholder="Tên *" formControlName="name">
+                        <div *ngIf="form.controls.name.invalid && submitted">
+                            <div *ngIf="form.controls.name.errors?.['required']">
+                                <small class="text-danger">Tên là bắt buộc</small>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-6">
-                        <input type="email" class="form-control border-0" placeholder="Email" required>
+                        <input type="email" class="form-control border-0" placeholder="Email *" formControlName="email">
+                        <div *ngIf="form.controls.email.invalid && submitted">
+                            <div *ngIf="form.controls.email.errors?.['required']">
+                                <small class="text-danger">Email là bắt buộc</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group mb-4">
-                    <textarea class="form-control border-0" rows="6" placeholder="Messenger"></textarea>
+                    <textarea class="form-control border-0" rows="6" placeholder="Nội dung *" formControlName="content"></textarea>
+                    <div *ngIf="form.controls.content.invalid && submitted">
+                        <div *ngIf="form.controls.content.errors?.['required']">
+                            <small class="text-danger">Nội dung là bắt buộc</small>
+                        </div>
+                    </div>
                 </div>
-                <div class="custom-control custom-checkbox mb-6 text-left">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label custom-control-label-02 text-body" for="customCheck1"> Save
-                        my name, email in this browse for the next time I comment</label>
-                </div>
-                <button type="submit"
-                    class="btn btn-secondary bg-hover-primary border-hover-primary px-7">Submit</button>
+                <button type="button"
+                    class="btn btn-secondary bg-hover-primary border-hover-primary px-7" (click)="sendMessage()">Gửi</button>
             </form>
         </div>
     </section>

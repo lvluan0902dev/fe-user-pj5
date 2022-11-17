@@ -4,7 +4,6 @@ import { HttpService } from '../http/http.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
   })
 };
 
@@ -18,6 +17,11 @@ export class ContactUsService {
   ) { }
 
   public getAllContactSetting() {
-    return this.httpService.get('front/get-all-contact-setting');
+    return this.httpService.get('front/get-all-contact-setting', httpOptions);
+  }
+
+  public sendMessage(data: any) {
+    let payload = data;
+    return this.httpService.post('front/send-message', payload, httpOptions);
   }
 }

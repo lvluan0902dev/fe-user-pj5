@@ -17,6 +17,6 @@ export class AboutUsService {
   ) { }
 
   public getAllStaff() {
-    return this.httpService.get('front/get-all-staff');
+    return this.httpService.get('front/get-all-staff', httpOptions);
   }
 }

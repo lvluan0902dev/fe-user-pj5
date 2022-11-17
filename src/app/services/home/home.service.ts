@@ -18,14 +18,14 @@ export class HomeService {
   ) { }
 
   public getAllSlider() {
-    return this.httpService.get('front/get-all-slider');
+    return this.httpService.get('front/get-all-slider', httpOptions);
   }
 
   public getAllTestimonial() {
-    return this.httpService.get('front/get-all-testimonial');
+    return this.httpService.get('front/get-all-testimonial', httpOptions);
   }
 
   public getAllBeautyImage() {
-    return this.httpService.get('front/get-all-beauty-image');
+    return this.httpService.get('front/get-all-beauty-image', httpOptions);
   }
 }
