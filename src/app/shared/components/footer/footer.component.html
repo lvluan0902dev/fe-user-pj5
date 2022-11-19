@@ -31,16 +31,32 @@
                 </ul>
             </div>
             <div class="col-lg-5 col-12 mb-9 mb-lg-0">
-                <h3 class="mb-2">Good emails.</h3>
-                <p class="lh-2">Enter your email below to be the first to know about new collections and product
-                    launches.</p>
-                <form class="pt-4">
+                <h3 class="mb-2">Đăng ký thông báo</h3>
+                <p class="lh-2">Đăng ký nhận thông báo qua email để không bỏ lỡ các ưu đãi của VNBeauty.</p>
+                <form [formGroup]="form" class="pt-4">
                     <div class="input-group position-relative">
-                        <input type="email" class="form-control bg-white rounded-left"
-                            placeholder="Enter your email address">
-                        <button type="submit" class="btn btn-secondary bg-hover-primary border-hover-primary">
-                            Subscribe
+                        <input type="email" class="form-control bg-white rounded-left" placeholder="Nhập email của bạn" formControlName="email">
+                        <button type="button" class="btn btn-secondary bg-hover-primary border-hover-primary" (click)="registerNotificationEmail()">
+                            Đăng ký
                         </button>
+                    </div>
+                    <div>
+                        <div *ngIf="form.controls.email.invalid && submitted">
+                            <div *ngIf="form.controls.email.errors?.['required']">
+                                <small class="text-danger">Email là bắt buộc</small>
+                            </div>
+                        </div>
+                        <div *ngIf="form.controls.email.invalid && submitted">
+                            <div *ngIf="form.controls.email.errors?.['email']">
+                                <small class="text-danger">Email không đúng định dạng</small>
+                            </div>
+                        </div>
+                        <div class="text-success">
+                            {{successMessage}}
+                        </div>
+                        <div class="text-danger">
+                            {{errorMessage}}
+                        </div>
                     </div>
                 </form>
             </div>

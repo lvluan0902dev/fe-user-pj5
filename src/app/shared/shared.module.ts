@@ -9,7 +9,7 @@ import { SearchPopupComponent } from './components/search-popup/search-popup.com
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ModalSignInComponent } from './components/modal-sign-in/modal-sign-in.component';
 import { RouterModule } from '@angular/router';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,

@@ -24,4 +24,9 @@ export class ContactUsService {
     let payload = data;
     return this.httpService.post('front/send-message', payload, httpOptions);
   }
+
+  public registerNotificationEmail(data: any) {
+    let payload = data;
+    return this.httpService.post('front/register-notification-email', payload, httpOptions);
+  }
 }
