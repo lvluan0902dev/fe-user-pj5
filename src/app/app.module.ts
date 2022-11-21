@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FaqComponent } from './components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ShopComponent,
     AboutUsComponent,
     SafeHtmlPipe,
-    ContactUsComponent
+    ContactUsComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,

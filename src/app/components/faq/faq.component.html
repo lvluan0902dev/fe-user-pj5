@@ -1,0 +1,41 @@
+<main id="content">
+    <section class="pt-9">
+        <div class="container">
+            <div class="text-center mb-8 mb-lg-10">
+                <h2 class="mb-lg-9 mb-7">Frequently Asked Questions</h2>
+            </div>
+            <div class="hover-shine hover-zoom-in">
+                <img src="images/banner-35.jpg" alt="Frequently Asked Questions">
+            </div>
+        </div>
+    </section>
+    <section class="pt-11 pt-lg-13">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mt-7 mt-md-0">
+                    <div id="accordion-style-01" class="accordion">
+                        <div class="card border-0 mb-7" *ngFor="let faq of faqs">
+                        <div class="card-header border-0 p-0 bg-transparent bg-transparent" [id]="'heading' + faq.id">
+                                <h5 class="mb-0 fs-18 w-100">
+                                    <a href="#"
+                                        class="d-flex align-items-center border-bottom pb-2 text-decoration-none collapsed"
+                                        data-toggle="collapse" [attr.data-target]="'#collapse' + faq.id" aria-expanded="true"
+                                        [attr.aria-controls]="'collapse' + faq.id">
+                                        <span>{{faq.title}}</span>
+                                        <span class="icon d-inline-block ml-auto"></span>
+                                    </a>
+                                </h5>
+                            </div>
+                            <div [id]="'collapse' + faq.id" class="collapse" [attr.aria-labelledby]="'heading' + faq.id"
+                                data-parent="#accordion-style-01">
+                                <div class="card-body pt-4 pb-1 px-0">
+                                    <span [innerHTML]="faq.content"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
