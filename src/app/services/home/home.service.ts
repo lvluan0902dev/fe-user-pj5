@@ -27,4 +27,12 @@ export class HomeService {
   public getAllBeautyImage() {
     return this.httpService.get('front/get-all-beauty-image', httpOptions);
   }
+
+  public getProductsLatest() {
+    return this.httpService.get('front/get-products-latest', httpOptions);
+  }
+
+  public getMostViewedProducts() {
+    return this.httpService.get('front/get-most-viewed-products', httpOptions);
+  }
 }
