@@ -1,7 +1,7 @@
 export interface ProductBrand {
     id: number,
     name: string,
-    status: number,
+    productCount: number,
     created_at: string,
     updated_at: string
 }

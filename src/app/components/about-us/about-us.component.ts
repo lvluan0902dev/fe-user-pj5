@@ -40,7 +40,7 @@ export class AboutUsComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.getAllStaff();
   }
 
-  public getAllStaff() {
+  private getAllStaff() {
     this.aboutUsService.getAllStaff().subscribe((response) => {
       if (response.success == 1) {
         this.staffs = response.data;

@@ -24,7 +24,7 @@ export class FaqComponent implements OnInit {
     this.getAllFaq();
   }
 
-  public getAllFaq() {
+  private getAllFaq() {
     this.faqService.getAllFaq().subscribe((response) => {
       if (response.success == 1) {
         this.faqs = response.data;

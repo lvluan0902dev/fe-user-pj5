@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.getMostViewedProducts();
   }
 
-  public getAllSlider() {
+  private getAllSlider() {
     this.homeService.getAllSlider().subscribe((response) => {
       if (response.success == 1) {
         this.sliders = response.data;
@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     });
   }
 
-  public getAllTestimonial() {
+  private getAllTestimonial() {
     this.homeService.getAllTestimonial().subscribe((response) => {
       if (response.success == 1) {
         this.testimonials = response.data;
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     });
   }
 
-  public getAllBeautyImage() {
+  private getAllBeautyImage() {
     this.homeService.getAllBeautyImage().subscribe((response) => {
       if (response.success == 1) {
         this.beautyImages = response.data;
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     });
   }
 
-  public getProductsLatest() {
+  private getProductsLatest() {
     this.homeService.getProductsLatest().subscribe((response) => {
       if (response.success == 1) {
         this.productsLatest = response.data;
@@ -108,7 +108,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     });
   }
 
-  public getMostViewedProducts() {
+  private getMostViewedProducts() {
     this.homeService.getMostViewedProducts().subscribe((response) => {
       if (response.success == 1) {
         this.mostViewedProducts = response.data;

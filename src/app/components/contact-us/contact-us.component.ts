@@ -40,7 +40,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
     this.getAllContactSetting();
   }
 
-  public getAllContactSetting() {
+  private getAllContactSetting() {
     this.contactUsService.getAllContactSetting().subscribe((response) => {
       if (response.success == 1) {
         this.contactSettings = response.data;
