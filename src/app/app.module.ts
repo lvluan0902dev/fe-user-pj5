@@ -15,6 +15,8 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FaqComponent } from './components/faq/faq.component';
+import { PaginatorModule } from 'primeng/paginator';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { FaqComponent } from './components/faq/faq.component';
     ToastModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PaginatorModule
   ],
   providers: [
     MessageService,

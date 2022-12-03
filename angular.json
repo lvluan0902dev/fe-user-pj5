@@ -35,7 +35,10 @@
               "src/assets/vendors/fonts/butler/stylesheet.min.css",
               "src/assets/vendors/fonts/a-antara-distance/stylesheet.min.css",
               "src/assets/css/themes.css",
-              "src/assets/vendors/slick/slick.min.css"
+              "src/assets/vendors/slick/slick.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [
               "src/assets/vendors/jquery.min.js",
