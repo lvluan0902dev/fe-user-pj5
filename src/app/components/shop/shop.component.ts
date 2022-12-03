@@ -80,7 +80,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
       this.products = response.data;
       this.totalResult = response.total_result;
     })
-
+    
     themeInit();
   }
 
@@ -90,7 +90,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
     } else {
       this.product_brand_id = id;
     }
-    
+
     this.event = {
       first: 0,
       rows: this.perPage,
@@ -102,7 +102,12 @@ export class ShopComponent implements OnInit, AfterViewInit {
   }
 
   public filterByCategory(id: any) {
-    this.product_category_id = id;
+    if (this.product_category_id == id) {
+      this.product_category_id = 0;
+    } else {
+      this.product_category_id = id;
+    }
+    
     this.event = {
       first: 0,
       rows: this.perPage,
