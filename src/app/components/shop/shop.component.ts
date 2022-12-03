@@ -23,6 +23,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
   public totalResult: number = 12;
   public product_category_id: number = 0;
   public product_brand_id: number = 0;
+  public sortByPriceType: number = 0;
 
   constructor(
     private title: Title,
@@ -41,6 +42,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
     this.event = {
       first: 0,
       rows: this.perPage,
+      sort_by_price_type: this.sortByPriceType,
       product_category_id: this.product_category_id,
       product_brand_id: this.product_brand_id,
     };
@@ -68,6 +70,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
     this.event = {
       first: event.first,
       rows: this.perPage,
+      sort_by_price_type: this.sortByPriceType,
       product_category_id: this.product_category_id,
       product_brand_id: this.product_brand_id,
     }
@@ -94,6 +97,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
     this.event = {
       first: 0,
       rows: this.perPage,
+      sort_by_price_type: this.sortByPriceType,
       product_category_id: this.product_category_id,
       product_brand_id: this.product_brand_id,
     };
@@ -111,9 +115,24 @@ export class ShopComponent implements OnInit, AfterViewInit {
     this.event = {
       first: 0,
       rows: this.perPage,
+      sort_by_price_type: this.sortByPriceType,
       product_category_id: this.product_category_id,
       product_brand_id: this.product_brand_id,
     };
+
+    this.loadData();
+  }
+
+  public sortByPrice(type: any) {
+    this.sortByPriceType = type;
+
+    this.event = {
+      first: 0,
+      rows: this.perPage,
+      sort_by_price_type: this.sortByPriceType,
+      product_category_id: this.product_category_id,
+      product_brand_id: this.product_brand_id,
+    }
 
     this.loadData();
   }

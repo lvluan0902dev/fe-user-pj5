@@ -11,12 +11,14 @@
                         <a href="#"
                             class="dropdown-toggle custom-dropdown-toggle text-decoration-none text-secondary p-3 mw-210 position-relative d-block"
                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Default Sorting
+                            <span *ngIf="sortByPriceType == 0">Mặc định</span>
+                            <span *ngIf="sortByPriceType == 1">Giá: Thấp đến Cao</span>
+                            <span *ngIf="sortByPriceType == 2">Giá: Cao đến Thấp</span>
                         </a>
                         <div class="dropdown-menu custom-dropdown-item" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Price high to low</a>
-                            <a class="dropdown-item" href="#">Price low to high</a>
-                            <a class="dropdown-item" href="#">Random</a>
+                            <a class="dropdown-item" href="javascript:void(0)" (click)="sortByPrice(0)">Mặc định</a>
+                            <a class="dropdown-item" href="javascript:void(0)" (click)="sortByPrice(1)">Giá: Thấp đến Cao</a>
+                            <a class="dropdown-item" href="javascript:void(0)" (click)="sortByPrice(2)">Giá: Cao đến Thấp</a>
                         </div>
                     </div>
                 </div>
@@ -71,15 +73,15 @@
                                 <div class="position-relative">
                                     <a routerLink="/san-pham/{{product.url}}">
                                         <img [src]="url + product.image_path" [alt]="product.image_name">
-                                        <div class="card-img-overlay d-flex p-3">
+                                        <!-- <div class="card-img-overlay d-flex p-3">
                                             <div>
                                                 <span class="badge badge-primary">{{product.product_category.name}}</span>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </a>
                                 </div>
                                 <div class="card-body pt-4 text-center">
-                                    <h2 class="card-title fs-15 font-weight-500 mb-2">{{product.product_options[0].price |
+                                    <h2 class="card-title fs-15 font-weight-500 mb-2">{{product.option_price |
                                         number}} đ</h2>
                                     <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
                                         <a routerLink="/san-pham/{{product.url}}">{{product.name}}</a>
