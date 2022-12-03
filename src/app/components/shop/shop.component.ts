@@ -19,6 +19,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
   public productBrands: ProductBrand[] = [];
   public products: Product[] = [];
   public event: any;
+  public perPage: number = 12;
   public totalResult: number = 12;
   public product_category_id: number = 0;
   public product_brand_id: number = 0;
@@ -39,7 +40,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
     this.getAllProductBrand();
     this.event = {
       first: 0,
-      rows: 12,
+      rows: this.perPage,
       product_category_id: this.product_category_id,
       product_brand_id: this.product_brand_id,
     };
@@ -63,16 +64,15 @@ export class ShopComponent implements OnInit, AfterViewInit {
   }
 
   public paginate(event: any) {
+    this.perPage = event.rows
     this.event = {
       first: event.first,
-      rows: event.rows,
+      rows: this.perPage,
       product_category_id: this.product_category_id,
       product_brand_id: this.product_brand_id,
     }
     
     this.loadData();
-
-    themeInit();
   }
 
   private loadData() {
@@ -80,5 +80,36 @@ export class ShopComponent implements OnInit, AfterViewInit {
       this.products = response.data;
       this.totalResult = response.total_result;
     })
+
+    themeInit();
+  }
+
+  public filterByBrand(id: any) {
+    if (this.product_brand_id == id) {
+      this.product_brand_id = 0;
+    } else {
+      this.product_brand_id = id;
+    }
+    
+    this.event = {
+      first: 0,
+      rows: this.perPage,
+      product_category_id: this.product_category_id,
+      product_brand_id: this.product_brand_id,
+    };
+
+    this.loadData();
+  }
+
+  public filterByCategory(id: any) {
+    this.product_category_id = id;
+    this.event = {
+      first: 0,
+      rows: this.perPage,
+      product_category_id: this.product_category_id,
+      product_brand_id: this.product_brand_id,
+    };
+
+    this.loadData();
   }
 }

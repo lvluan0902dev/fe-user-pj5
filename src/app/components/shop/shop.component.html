@@ -36,7 +36,7 @@
                                 <ul class="list-unstyled mb-0">
                                     <li class="mb-2" *ngFor="let productCategory of productCategories">
                                         <a href="javascript:void(0)"
-                                            class="text-uppercase fs-14 letter-spacing-005 font-weight-600 text-body hover-secondary text-decoration-none">{{productCategory.name}} ({{productCategory.productCount}})</a>
+                                            class="text-uppercase fs-14 letter-spacing-005 font-weight-600 text-body hover-secondary text-decoration-none" (click)="filterByCategory(productCategory.id)">{{productCategory.name}} ({{productCategory.productCount}})</a>
                                     </li>
                                 </ul>
                             </div>
@@ -48,7 +48,11 @@
                             <div class="card-body p-0">
                                 <ul class="list-unstyled mb-0">
                                     <li class="mb-2" *ngFor="let productBrand of productBrands">
-                                        <a href="javascript:void(0)" class="text-body hover-secondary">
+                                        <a href="javascript:void(0)" class="text-body hover-secondary" style="font-weight: bold; color: black !important;" *ngIf="product_brand_id == productBrand.id" (click)="filterByBrand(productBrand.id)">
+                                            {{productBrand.name}} ({{productBrand.productCount}})
+                                        </a>
+
+                                        <a href="javascript:void(0)" class="text-body hover-secondary" *ngIf="product_brand_id != productBrand.id" (click)="filterByBrand(productBrand.id)">
                                             {{productBrand.name}} ({{productBrand.productCount}})
                                         </a>
                                     </li>
@@ -86,7 +90,7 @@
                         </div>
                     </div>
                     <div class="pt-3">
-                        <p-paginator [rows]="12" [totalRecords]="totalResult" [rowsPerPageOptions]="[12,24,36]" (onPageChange)="paginate($event)"></p-paginator>
+                        <p-paginator [rows]="perPage" [totalRecords]="totalResult" [rowsPerPageOptions]="[12,24,36]" (onPageChange)="paginate($event)"></p-paginator>
                     </div>
                 </div>
             </div>
