@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductBrand } from 'src/app/models/product-brand/product-brand.model';
 import { ProductCategory } from 'src/app/models/product-category/product-category.model';
 import { Product } from 'src/app/models/product/product.model';
@@ -30,6 +30,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
   constructor(
     private title: Title,
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private shopService: ShopService
   ) {
     this.title.setTitle('Cửa hàng');
@@ -156,5 +157,26 @@ export class ShopComponent implements OnInit, AfterViewInit {
     }
 
     this.loadData();
+  }
+
+  public restShop() {
+    this.perPage = 12;
+    this.sortByPriceType = 0;
+    this.product_category_id = 0;
+    this.product_brand_id = 0;
+    this.searchValue = null;
+
+    this.event = {
+      first: 0,
+      rows: this.perPage,
+      sort_by_price_type: this.sortByPriceType,
+      product_category_id: this.product_category_id,
+      product_brand_id: this.product_brand_id,
+      search: this.searchValue
+    }
+
+    this.loadData();
+
+    this.router.navigateByUrl('/cua-hang');
   }
 }

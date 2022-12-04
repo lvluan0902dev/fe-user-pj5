@@ -36,4 +36,8 @@ export class ShopService {
 
     return this.httpService.post('front/shop', payload, httpOptions);
   }
+
+  public getProduct(url: any) {
+    return this.httpService.get('front/get-product/' + url, httpOptions);
+  }
 }

@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FaqComponent } from './components/faq/faq.component';
 import { PaginatorModule } from 'primeng/paginator';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PaginatorModule } from 'primeng/paginator';
     AboutUsComponent,
     SafeHtmlPipe,
     ContactUsComponent,
-    FaqComponent
+    FaqComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
