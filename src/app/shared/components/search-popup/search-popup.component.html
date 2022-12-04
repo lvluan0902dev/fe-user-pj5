@@ -1,22 +1,12 @@
 <div class="mfp-hide search-popup mfp-with-anim" id="search-popup">
-    <form>
+    <form (keydown.enter)="$event.preventDefault()">
         <div class="input-group position-relative">
-            <div class="input-group-prepend d-none d-md-block">
-                <select class="selectpicker" name="category" id="region-01"
-                    data-style="btn-lg letter-spacing-0 border-0 border-bottom border-2x bg-transparent text-white border-white fs-24 pl-0 shadow-none text-capitalize font-weight-normal rounded-0">
-                    <option value="" selected>All Categories</option>
-                    <option value="chairs">Chairs</option>
-                    <option value="stands">Stands</option>
-                    <option value="tables">Tables</option>
-                    <option value="accessory">Accessory</option>
-                </select>
-            </div>
-            <input type="text" id="keyword" name="keyword"
+            <input #seachInput type="text" id="keyword" name="keyword"
                 class="form-control border-0 border-bottom border-2x bg-transparent text-white border-white fs-24 form-control-lg"
-                placeholder="Search Something...">
+                placeholder="Tìm kiếm..." (keyup.enter)="search(seachInput.value)" autocomplete="off">
             <div class="input-group-append position-absolute pos-fixed-right-center">
-                <button class="input-group-text bg-transparent border-0 text-white fs-30 px-0 btn-lg"
-                    type="submit"><i class="far fa-search"></i></button>
+                <button style="cursor: pointer !important;" class="input-group-text bg-transparent border-0 text-white fs-30 px-0 btn-lg"
+                    type="button" (click)="search(seachInput.value)"><i class="far fa-search"></i></button>
             </div>
         </div>
     </form>

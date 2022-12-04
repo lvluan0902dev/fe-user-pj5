@@ -30,8 +30,8 @@ export class ShopService {
       per_page: data.rows == undefined ? 0 : data.rows,
       product_category_id: data.product_category_id,
       product_brand_id: data.product_brand_id,
-      sort_by_price_type: data.sort_by_price_type
-      // search: data.searchInput
+      sort_by_price_type: data.sort_by_price_type,
+      search: data.search
     };
 
     return this.httpService.post('front/shop', payload, httpOptions);

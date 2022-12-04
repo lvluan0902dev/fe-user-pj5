@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+declare var $: any;
 
 @Component({
   selector: 'app-search-popup',
@@ -8,9 +11,19 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class SearchPopupComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  public search(searchInput: any) {
+    this.router.navigate(['cua-hang'], {
+      queryParams: {
+        search: searchInput
+      }
+    })
+    $("button.mfp-close").click();
+  }
 }
