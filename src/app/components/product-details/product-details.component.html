@@ -45,7 +45,7 @@
                     </p>
                     <h2 class="fs-24 mb-2">{{product.name}}</h2>
                     <div class="d-flex align-items-center flex-wrap mb-3 lh-12">
-                        <a href="#" class="pl-3 border-left border-gray-2 text-body">{{product.view_count}} lượt xem</a>
+                        <a href="javascript:void(0)" class="pl-3 border-left border-gray-2 text-body">{{product.view_count}} lượt xem</a>
                     </div>
                     <p class="mb-5" [innerHTML]="product.short_description"></p>
                     <form>
@@ -64,9 +64,28 @@
                                 {{productOption.name}} - <span class="font-weight-bold">{{productOption.price}} đ</span>
                             </label>
                         </div>
-                        <button type="submit"
-                            class="btn btn-lg fs-18 btn-secondary btn-block mb-4 bg-hover-primary border-0">Thêm vào giỏ hàng
-                        </button>
+                        <div class="row align-items-end no-gutters mx-n2">
+                            <div class="col-sm-4 form-group px-2 mb-5">
+                                <label class="text-secondary font-weight-600 mb-3" for="number">Số lượng: </label>
+                                <div class="input-group position-relative w-100">
+                                    <a href="javascript:void(0)"
+                                        class="down position-absolute pos-fixed-left-center pl-4 z-index-2"><i
+                                            class="far fa-minus"></i></a>
+                                    <input name="number" type="number" id="number"
+                                        class="form-control w-100 px-6 text-center input-quality text-secondary h-60 fs-18 font-weight-bold border-0"
+                                        value="1" required>
+                                    <a href="javascript:void(0)"
+                                        class="up position-absolute pos-fixed-right-center pr-4 z-index-2"><i
+                                            class="far fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 mb-5 w-100 px-2">
+                                <button type="submit"
+                                    class="btn btn-lg fs-18 btn-secondary btn-block h-60 bg-hover-primary border-0">Thêm vào giỏ hàng
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
