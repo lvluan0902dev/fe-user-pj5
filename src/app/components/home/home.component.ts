@@ -1,6 +1,7 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { BeautyImage } from 'src/app/models/beauty-image/beauty-image.model';
+import { Blog } from 'src/app/models/blog/blog.model';
 import { Product } from 'src/app/models/product/product.model';
 import { Slider } from 'src/app/models/slider/slider.model';
 import { Testimonial } from 'src/app/models/testimonial/testimonial.model';
@@ -22,10 +23,12 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
   public beautyImages: BeautyImage[] = [];
   public productsLatest: Product[] = [];
   public mostViewedProducts: Product[] = [];
+  public blogs: Blog[] = [];
   private s_slider_slicked: boolean = false;
   private s_testimonial_slicked: boolean = false;
   private s_beautyImage_slicked: boolean = false;
   private s_product_latest_slicked: boolean = false;
+  private s_blog_slicked: boolean = false;
 
   constructor(
     private title: Title,
@@ -58,6 +61,12 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
       $(".s-product-latest").slick({ "slidesToShow": 4, "dots": false, "arrows": true, "responsive": [{ "breakpoint": 1368, "settings": { "arrows": false, "dots": false } }, { "breakpoint": 1200, "settings": { "slidesToShow": 3, "arrows": false, "dots": false } }, { "breakpoint": 992, "settings": { "slidesToShow": 2, "arrows": false, "dots": false } }, { "breakpoint": 768, "settings": { "slidesToShow": 2, "arrows": false, "dots": false } }, { "breakpoint": 576, "settings": { "slidesToShow": 1, "arrows": false, "dots": false } }] });
       this.s_product_latest_slicked = true;
     }
+
+    if (!this.s_blog_slicked && this.blogs.length) {
+      $(".s-blog").slick("unslick");
+      $(".s-blog").slick({"slidesToShow": 3,"arrows":false,"dots":false,"responsive":[{"breakpoint": 992,"settings": {"slidesToShow":2,"dots":false}},{"breakpoint": 768,"settings": {"slidesToShow": 1,"dots":false}}]});
+      this.s_blog_slicked = true;
+    }
   }
 
   ngAfterViewInit(): void {
@@ -70,6 +79,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.getAllBeautyImage();
     this.getProductsLatest();
     this.getMostViewedProducts();
+    this.getSomeBlogs();
   }
 
   private getAllSlider() {
@@ -112,6 +122,15 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.homeService.getMostViewedProducts().subscribe((response) => {
       if (response.success == 1) {
         this.mostViewedProducts = response.data;
+      }
+    })
+  }
+
+  private getSomeBlogs() {
+    this.homeService.getSomeBlogs().subscribe((response) => {
+      if (response.success == 1) {
+        this.blogs = response.data;
+        this.s_blog_slicked = false;
       }
     })
   }

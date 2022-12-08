@@ -35,4 +35,8 @@ export class HomeService {
   public getMostViewedProducts() {
     return this.httpService.get('front/get-most-viewed-products', httpOptions);
   }
+
+  public getSomeBlogs() {
+    return this.httpService.get('front/get-some-blogs', httpOptions);
+  }
 }
