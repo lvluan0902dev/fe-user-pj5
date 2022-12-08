@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-8" *ngFor="let blog of blogs">
                             <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
+                                <a routerLink="/bai-viet/{{blog.url}}" class="hover-shine card-img-top">
                                     <img [src]="url + blog.image_path"
                                         [alt]="blog.image_name">
                                 </a>
@@ -18,7 +18,7 @@
                                         <li class="list-inline-item pr-3">{{blog.created_at|date:'longDate'}}</li>
                                     </ul>
                                     <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">{{blog.title}}</a>
+                                        <a class="text-decoration-none" routerLink="/bai-viet/{{blog.url}}">{{blog.title}}</a>
                                     </h3>
                                 </div>
                             </div>

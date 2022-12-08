@@ -6,6 +6,7 @@ export interface Blog {
     content: number,
     image_name: string,
     image_path: string,
+    url: string,
     blog_category_id: number,
     blog_category: BlogCategory,
     view_count: number,

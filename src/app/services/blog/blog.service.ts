@@ -29,4 +29,8 @@ export class BlogService {
 
     return this.httpService.post('front/blog', payload, httpOptions);
   }
+
+  public getBlog(url: any) {
+    return this.httpService.get('front/get-blog/' + url, httpOptions);
+  }
 }

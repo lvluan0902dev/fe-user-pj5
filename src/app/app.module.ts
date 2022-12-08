@@ -18,6 +18,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { BlogComponent } from './components/blog/blog.component';
     ContactUsComponent,
     FaqComponent,
     ProductDetailsComponent,
-    BlogComponent
+    BlogComponent,
+    BlogDetailsComponent
   ],
   imports: [
     BrowserModule,

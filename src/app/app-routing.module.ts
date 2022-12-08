@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FaqComponent } from './components/faq/faq.component';
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'bai-viet',
     component: BlogComponent
+  },
+  {
+    path: 'bai-viet/:url',
+    component: BlogDetailsComponent
   },
 ];
 
