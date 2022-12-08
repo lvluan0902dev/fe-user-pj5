@@ -5,240 +5,39 @@
             <div class="row">
                 <div class="col-lg-8 mb-11 mb-lg-0">
                     <div class="row">
-                        <div class="col-md-6 mb-8">
+                        <div class="col-md-6 mb-8" *ngFor="let blog of blogs">
                             <div class="card border-0" data-animate="fadeInUp">
                                 <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-01.jpg"
-                                        alt="Which foundation formula is right for your skin?">
+                                    <img [src]="url + blog.image_path"
+                                        [alt]="blog.image_name">
                                 </a>
                                 <div class="card-body p-0 text-left">
                                     <ul
                                         class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
+                                        <li class="list-inline-item pr-3 border-right border-2x">{{blog.blog_category.name}}</li>
+                                        <li class="list-inline-item pr-3">{{blog.created_at|date:'longDate'}}</li>
                                     </ul>
                                     <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">Which foundation
-                                            formula is right for your skin?</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-19.jpg"
-                                        alt="How to Plop Hair for Bouncy, Beautiful Curls">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">How to Plop Hair
-                                            for Bouncy, Beautiful Curls</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-18.jpg"
-                                        alt="How to Plop Hair for Bouncy, Beautiful Curls">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">How to Plop Hair
-                                            for Bouncy, Beautiful Curls</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-23.jpg"
-                                        alt="Which foundation formula is right for your skin?">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">Which foundation
-                                            formula is right for your skin?</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-05.jpg"
-                                        alt="Which foundation formula is right for your skin?">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">Which foundation
-                                            formula is right for your skin?</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-06.jpg"
-                                        alt="How to Plop Hair for Bouncy, Beautiful Curls">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">How to Plop Hair
-                                            for Bouncy, Beautiful Curls</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-17.jpg"
-                                        alt="How to Plop Hair for Bouncy, Beautiful Curls">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">How to Plop Hair
-                                            for Bouncy, Beautiful Curls</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-20.jpg"
-                                        alt="Which foundation formula is right for your skin?">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">Which foundation
-                                            formula is right for your skin?</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-21.jpg"
-                                        alt="Which foundation formula is right for your skin?">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">Which foundation
-                                            formula is right for your skin?</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-8">
-                            <div class="card border-0" data-animate="fadeInUp">
-                                <a href="blog-detail-2.html" class="hover-shine card-img-top">
-                                    <img src="../../../assets/images/post-22.jpg"
-                                        alt="How to Plop Hair for Bouncy, Beautiful Curls">
-                                </a>
-                                <div class="card-body p-0 text-left">
-                                    <ul
-                                        class="list-inline mt-4 fs-13 text-uppercase letter-spacing-01 lh-1 font-weight-600">
-                                        <li class="list-inline-item pr-3 border-right border-2x"> lifestyle</li>
-                                        <li class="list-inline-item pr-3">Jan 19, 2021</li>
-                                    </ul>
-                                    <h3 class="card-title mb-0 fs-20">
-                                        <a class="text-decoration-none" href="blog-detail-2.html">How to Plop Hair
-                                            for Bouncy, Beautiful Curls</a>
+                                        <a class="text-decoration-none" href="blog-detail-2.html">{{blog.title}}</a>
                                     </h3>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <nav class="pt-2 pt-lg-5">
-                        <ul class="pagination justify-content-center align-items-center mb-0 fs-16 font-weight-600">
-                            <li class="page-item fs-18 d-none d-sm-block">
-                                <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                    href="#" tabindex="-1"><i class="far fa-angle-double-left"></i></a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                    href="#">1</a>
-                            </li>
-                            <li class="page-item active" aria-current="page">
-                                <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                    href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                    href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                    href="#">...</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                    href="#">6</a>
-                            </li>
-                            <li class="page-item fs-18 d-none d-sm-block">
-                                <a class="page-link rounded-circle w-40px h-40 p-0 justify-content-center align-items-center d-flex"
-                                    href="#"><i class="far fa-angle-double-right"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <div class="pt-2">
+                        <p-paginator [rows]="perPage" [totalRecords]="totalResult" [rowsPerPageOptions]="[6,12,18]" (onPageChange)="paginate($event)"></p-paginator>
+                    </div>
                 </div>
                 <div class="col-lg-4 pl-lg-8 primary-sidebar sidebar-sticky" id="sidebar">
                     <div class="primary-sidebar-inner">
                         <div class="card border-0 mb-8">
                             <div class="card-header bg-transparent border-0 p-0">
                                 <h3 class="card-title fs-20 mb-0">
-                                    Search
+                                    Tìm kiếm
                                 </h3>
                             </div>
                             <div class="card-body px-0 pt-3 pb-0">
-                                <form class="mx-auto w-100">
+                                <form class="mx-auto w-100" (keydown.enter)="$event.preventDefault()">
                                     <div class="input-group">
                                         <div class="input-group-prepend position-absolute z-index-10">
                                             <button
@@ -246,8 +45,8 @@
                                                 type="submit" id="button-addon1"><i
                                                     class="far fa-search"></i></button>
                                         </div>
-                                        <input type="text" class="form-control border-0 pl-8 rounded"
-                                            placeholder="Search" aria-describedby="button-addon1">
+                                        <input #seachInput type="text" class="form-control border-0 pl-8 rounded"
+                                            placeholder="Tiêu đề bài viết" aria-describedby="button-addon1" value="{{searchValue}}" (keyup.enter)="search(seachInput.value)" autocomplete="off">
                                     </div>
                                 </form>
                             </div>
@@ -255,25 +54,15 @@
                         <div class="card border-0 mb-8">
                             <div class="card-header bg-transparent border-0 p-0">
                                 <h3 class="card-title fs-20 mb-0">
-                                    Categories
+                                    Danh mục
                                 </h3>
                             </div>
                             <div class="card-body px-0 pt-2 pb-0">
                                 <ul class="list-unstyled mb-0">
-                                    <li class="lh-2">
-                                        <a href="#" class="text-body hover-secondary">Make up</a>
-                                    </li>
-                                    <li class="lh-2">
-                                        <a href="#" class="text-body hover-secondary">Skin care </a>
-                                    </li>
-                                    <li class="lh-2">
-                                        <a href="#" class="text-body hover-secondary">How to’s </a>
-                                    </li>
-                                    <li class="lh-2">
-                                        <a href="#" class="text-body hover-secondary">Tips </a>
-                                    </li>
-                                    <li class="lh-2">
-                                        <a href="#" class="text-body hover-secondary">Hair & body</a>
+                                    <li class="lh-2" *ngFor="let blogCategory of blogCategories">
+                                        <a href="javascript:void(0)" class="text-body hover-secondary" style="font-weight: bold; color: black !important;" *ngIf="blog_category_id == blogCategory.id" (click)="filterByCategory(blogCategory.id)">{{blogCategory.name}} ({{blogCategory.blogCount}})</a>
+
+                                        <a href="javascript:void(0)" class="text-body hover-secondary" *ngIf="blog_category_id != blogCategory.id" (click)="filterByCategory(blogCategory.id)">{{blogCategory.name}} ({{blogCategory.blogCount}})</a>
                                     </li>
                                 </ul>
                             </div>
