@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Faq } from 'src/app/models/faq/faq.model';
 import { FaqService } from 'src/app/services/faq/faq.service';
 import { environment } from 'src/environments/environment';
+
+declare var themeInit: any;
 
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.css']
 })
-export class FaqComponent implements OnInit {
+export class FaqComponent implements OnInit, AfterViewInit, AfterContentInit {
   public url = environment.url + '/';
   public faqs: Faq[] = [];
 
@@ -18,6 +20,14 @@ export class FaqComponent implements OnInit {
     private faqService: FaqService
   ) {
     this.title.setTitle('Câu hỏi thường gặp');
+  }
+  
+  ngAfterContentInit(): void {
+    themeInit();
+  }
+
+  ngAfterViewInit(): void {
+    // themeInit();
   }
 
   ngOnInit(): void {
