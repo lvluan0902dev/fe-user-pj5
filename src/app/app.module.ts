@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FaqComponent } from './components/faq/faq.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     SafeHtmlPipe,
     ContactUsComponent,
     FaqComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
