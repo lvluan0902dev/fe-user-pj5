@@ -19,6 +19,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
+import { CartManageComponent } from './components/cart-manage/cart-manage.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { BlogDetailsComponent } from './components/blog-details/blog-details.com
     FaqComponent,
     ProductDetailsComponent,
     BlogComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    CartManageComponent
   ],
   imports: [
     BrowserModule,

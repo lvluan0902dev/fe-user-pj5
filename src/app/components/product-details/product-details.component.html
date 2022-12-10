@@ -40,8 +40,7 @@
                 </div>
                 <div class="col-md-6">
                     <p class="d-flex align-items-center mb-3">
-                        <span class="fs-18 text-secondary font-weight-bold ml-3">{{product.option_price | number}}
-                            đ</span>
+                        <span class="fs-18 text-secondary font-weight-bold ml-3">{{product.option_price | number}}đ</span>
                     </p>
                     <h2 class="fs-24 mb-2">{{product.name}}</h2>
                     <div class="d-flex align-items-center flex-wrap mb-3 lh-12">
@@ -61,7 +60,7 @@
                             *ngFor="let productOption of product.product_options">
                             <input type="radio" id="product_option_id_{{productOption.id}}" name="product_option" class="custom-control-input">
                             <label class="custom-control-label custom-control-label-secondary" for="product_option_id_{{productOption.id}}">
-                                {{productOption.name}} - <span class="font-weight-bold">{{productOption.price}} đ</span>
+                                {{productOption.name}} - <span class="font-weight-bold">{{productOption.price}}đ</span>
                             </label>
                         </div>
                         <div class="row align-items-end no-gutters mx-n2">
@@ -95,17 +94,17 @@
         <div class="container">
             <div class="collapse-tabs">
                 <ul class="nav nav-pills mb-5 justify-content-center d-md-flex d-none" id="pills-tab" role="tablist">
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="product.product_detail">
                         <a class="nav-link active show fs-lg-34 fs-24 lh-129 font-weight-600 p-0 mr-md-10 mr-4"
                             id="product-detail-tab" data-toggle="pill" href="#product-detail" role="tab"
                             aria-controls="product-detail" aria-selected="false">Chi tiết</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="product.how_to_use">
                         <a class="nav-link fs-lg-34 fs-24 lh-129 font-weight-600 p-0 mr-md-10 mr-4"
                             id="product-how-to-use-tab" data-toggle="pill" href="#product-how-to-use" role="tab"
                             aria-controls="product-how-to-use" aria-selected="false">Cách sử dụng</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="product.ingredients">
                         <a class="nav-link fs-lg-34 fs-24 lh-129 font-weight-600 p-0" id="ingredients-tab"
                             data-toggle="pill" href="#ingredients" role="tab" aria-controls="ingredients"
                             aria-selected="true">Thành phần</a>
@@ -113,7 +112,7 @@
                 </ul>
                 <div class="tab-content bg-white-md shadow-none py-md-5 p-0">
                     <div id="collapse-tabs-accordion-01">
-                        <div class="tab-pane tab-pane-parent fade show active" id="product-detail" role="tabpanel">
+                        <div class="tab-pane tab-pane-parent fade show active" id="product-detail" role="tabpanel" *ngIf="product.product_detail">
                             <div class="card border-0 bg-transparent">
                                 <div class="card-header border-0 d-block d-md-none bg-transparent px-0 py-1"
                                     id="headingDetails-01">
@@ -145,7 +144,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane tab-pane-parent fade" id="product-how-to-use" role="tabpanel">
+                        <div class="tab-pane tab-pane-parent fade" id="product-how-to-use" role="tabpanel" *ngIf="product.how_to_use">
                             <div class="card border-0 bg-transparent">
                                 <div class="card-header border-0 d-block d-md-none bg-transparent px-0 py-1"
                                     id="headinghow-to-use-01">
@@ -168,7 +167,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane tab-pane-parent fade" id="ingredients" role="tabpanel">
+                        <div class="tab-pane tab-pane-parent fade" id="ingredients" role="tabpanel" *ngIf="product.ingredients">
                             <div class="card border-0 bg-transparent">
                                 <div class="card-header border-0 d-block d-md-none bg-transparent px-0 py-1"
                                     id="headingingredients-01">
