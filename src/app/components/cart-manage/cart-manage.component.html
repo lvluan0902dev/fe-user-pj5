@@ -11,19 +11,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="position-relative">
+                        <tr class="position-relative" *ngFor="let item of cart">
                             <th scope="row" class="w-xl-695 pl-xl-5 py-4">
                                 <div class="media align-items-center">
                                     <div class="ml-3 mr-4">
-                                        <img src="images/product-07.jpg" alt="Natural Coconut Cleansing Oil"
+                                        <img [src]="item.product.image_path" [alt]="item.product.image_name"
                                             class="mw-75px">
                                     </div>
                                     <div class="media-body w-128px">
-                                        <p class="font-weight-500 mb-1 text-secondary">Natural Coconut Cleansing Oil</p>
-                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
-                                            <span
-                                                class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                                            <span>$29.00</span>
+                                        <p class="font-weight-500 mb-1 text-secondary">{{item.product.name}}</p>
+                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary" *ngIf="item.product_option_id">
+                                            <span>{{item.product_option.name}} - {{item.product_option.price}}</span>
+                                        </p>
+
+                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary" *ngIf="item.product_option_id == null">
+                                            <span>{{item.product.option_name}} - {{item.product.option_price}}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -42,113 +44,6 @@
                             </td>
                             <td class="align-middle">
                                 <p class="mb-0 text-secondary font-weight-bold mr-xl-11">$48.00</p>
-                            </td>
-                            <td class="align-middle text-right pr-5"><a href="javascript:void(0)" class="d-block"><i
-                                        class="fal fa-times text-body"></i></a></td>
-                        </tr>
-                        <tr class="position-relative">
-                            <th scope="row" class="w-xl-695 pl-xl-5 py-4">
-                                <div class="media align-items-center">
-                                    <div class="ml-3 mr-4">
-                                        <img src="images/product-10.jpg" alt="Super Pure" class="mw-75px">
-                                    </div>
-                                    <div class="media-body w-128px">
-                                        <p class="font-weight-500 mb-1 text-secondary">Super Pure</p>
-                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
-                                            <span
-                                                class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                                            <span>$29.00</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </th>
-                            <td class="align-middle">
-                                <div class="input-group position-relative w-128px">
-                                    <a href="javascript:void(0)" class="down position-absolute pos-fixed-left-center pl-2 z-index-2"><i
-                                            class="far fa-minus"></i></a>
-                                    <input name="number[]" type="number"
-                                        class="form-control form-control-sm px-6 fs-16 text-center input-quality border-0 h-35px"
-                                        value="1" required>
-                                    <a href="javascript:void(0)" class="up position-absolute pos-fixed-right-center pr-2 z-index-2"><i
-                                            class="far fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <p class="mb-0 text-secondary font-weight-bold mr-xl-11">$22.00</p>
-                            </td>
-                            <td class="align-middle text-right pr-5"><a href="javascript:void(0)" class="d-block"><i
-                                        class="fal fa-times text-body"></i></a></td>
-                        </tr>
-                        <tr class="position-relative opacity-5">
-                            <th scope="row" class="w-xl-695 pl-xl-5 py-4">
-                                <div class="media align-items-center">
-                                    <div class="ml-3 mr-4">
-                                        <img src="images/product-04.jpg" alt="Cleansing Balm" class="mw-75px">
-                                    </div>
-                                    <div class="media-body w-128px">
-                                        <p class="font-weight-500 mb-1 text-secondary">Cleansing Balm</p>
-                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
-                                            <span
-                                                class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                                            <span>$29.00</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="pos-fix-top-left position-absolute py-1 px-3 bg-muted text-white">
-                                    <span class="badge text-uppercase fs-14 letter-spacing-01 p-0">out of stock</span>
-                                </div>
-                            </th>
-                            <td class="align-middle">
-                                <div class="input-group position-relative w-128px">
-                                    <a href="javascript:void(0)" class="down position-absolute pos-fixed-left-center pl-2 z-index-2"><i
-                                            class="far fa-minus"></i></a>
-                                    <input name="number[]" type="number"
-                                        class="form-control form-control-sm px-6 fs-16 text-center input-quality border-0 h-35px"
-                                        value="1" required>
-                                    <a href="javascript:void(0)" class="up position-absolute pos-fixed-right-center pr-2 z-index-2"><i
-                                            class="far fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <p class="mb-0 text-secondary font-weight-bold mr-xl-11">$48.00</p>
-                            </td>
-                            <td class="align-middle text-right pr-5"><a href="javascript:void(0)" class="d-block"><i
-                                        class="fal fa-times text-body"></i></a></td>
-                        </tr>
-                        <tr class="position-relative">
-                            <th scope="row" class="w-xl-695 pl-xl-5 py-4">
-                                <div class="media align-items-center">
-                                    <input class="checkbox-primary w-15px h-15px" type="checkbox" name="check-product"
-                                        value="checkbox">
-                                    <div class="ml-3 mr-4">
-                                        <img src="images/product-05.jpg" alt="Cleansing Balm" class="mw-75px">
-                                    </div>
-                                    <div class="media-body w-128px">
-                                        <p class="font-weight-500 mb-1 text-secondary">Cleansing Balm</p>
-                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
-                                            <span
-                                                class="fs-13 font-weight-500 text-decoration-through text-body pr-1">$39.00</span>
-                                            <span>$29.00</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </th>
-                            <td class="align-middle">
-                                <div class="input-group position-relative w-128px">
-                                    <a href="javascript:void(0)" class="down position-absolute pos-fixed-left-center pl-2 z-index-2"><i
-                                            class="far fa-minus"></i></a>
-                                    <input name="number[]" type="number"
-                                        class="form-control form-control-sm px-6 fs-16 text-center input-quality border-0 h-35px"
-                                        value="1" required>
-                                    <a href="javascript:void(0)" class="up position-absolute pos-fixed-right-center pr-2 z-index-2"><i
-                                            class="far fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <p class="mb-0 text-secondary font-weight-bold mr-xl-11">$29.00</p>
                             </td>
                             <td class="align-middle text-right pr-5"><a href="javascript:void(0)" class="d-block"><i
                                         class="fal fa-times text-body"></i></a></td>
