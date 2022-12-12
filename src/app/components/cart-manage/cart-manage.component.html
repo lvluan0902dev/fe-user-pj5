@@ -15,17 +15,17 @@
                             <th scope="row" class="w-xl-695 pl-xl-5 py-4">
                                 <div class="media align-items-center">
                                     <div class="ml-3 mr-4">
-                                        <img [src]="item.product.image_path" [alt]="item.product.image_name"
+                                        <img [src]="url + item.product.image_path" [alt]="item.product.image_name"
                                             class="mw-75px">
                                     </div>
                                     <div class="media-body w-128px">
                                         <p class="font-weight-500 mb-1 text-secondary">{{item.product.name}}</p>
                                         <p class="card-text font-weight-bold fs-14 mb-1 text-secondary" *ngIf="item.product_option_id">
-                                            <span>{{item.product_option.name}} - {{item.product_option.price}}</span>
+                                            <span>{{item.product_option.name}} - {{item.product_option.price | number}}đ</span>
                                         </p>
 
                                         <p class="card-text font-weight-bold fs-14 mb-1 text-secondary" *ngIf="item.product_option_id == null">
-                                            <span>{{item.product.option_name}} - {{item.product.option_price}}</span>
+                                            <span>{{item.product.option_name}} - {{item.product.option_price | number}}đ</span>
                                         </p>
                                     </div>
                                 </div>
@@ -33,20 +33,20 @@
                             <td class="align-middle">
                                 <div class="input-group position-relative w-128px">
                                     <a href="javascript:void(0)" class="down position-absolute pos-fixed-left-center pl-2 z-index-2"><i
-                                            class="far fa-minus"></i></a>
+                                            class="far fa-minus" (click)="minusItem(item.id)"></i></a>
                                     <input name="number[]" type="number"
                                         class="form-control form-control-sm px-6 fs-16 text-center input-quality border-0 h-35px"
-                                        value="1" required>
+                                        [value]="item.quantity" disabled>
                                     <a href="javascript:void(0)" class="up position-absolute pos-fixed-right-center pr-2 z-index-2"><i
-                                            class="far fa-plus"></i>
+                                            class="far fa-plus" (click)="plusItem(item.id)"></i>
                                     </a>
                                 </div>
                             </td>
                             <td class="align-middle">
-                                <p class="mb-0 text-secondary font-weight-bold mr-xl-11">$48.00</p>
+                                <p class="mb-0 text-secondary font-weight-bold mr-xl-11">{{item.totalPrice | number}}đ</p>
                             </td>
                             <td class="align-middle text-right pr-5"><a href="javascript:void(0)" class="d-block"><i
-                                        class="fal fa-times text-body"></i></a></td>
+                                        class="fal fa-times text-body" (click)="removeItem(item.id)"></i></a></td>
                         </tr>
                         <tr>
                             <td class="pb-6 pl-0 position-relative bg-white" style="left: -1px">
@@ -60,10 +60,10 @@
                                 </button> -->
                             </td>
                             <td colspan="3" class="text-right pb-6 pr-0 position-relative bg-white" style="right: -2px">
-                                <button type="submit" value="Update Cart"
+                                <!-- <button type="submit" value="Update Cart"
                                     class="btn btn-outline-secondary border-2x border border-hover-secondary my-3">Update
                                     Cart
-                                </button>
+                                </button> -->
                             </td>
                         </tr>
                     </tbody>

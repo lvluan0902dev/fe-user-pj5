@@ -52,7 +52,7 @@
                         <div class="custom-control custom-radio mb-2">
                             <input type="radio" id="product_id_{{product.id}}" formControlName="product_option_id" [value]="-1" class="custom-control-input" [checked]="true">
                             <label class="custom-control-label custom-control-label-secondary" for="product_id_{{product.id}}">
-                                {{product.option_name}} - <span class="font-weight-bold">{{product.option_price}} đ</span>
+                                {{product.option_name}} - <span class="font-weight-bold">{{product.option_price | number}}đ</span>
                             </label>
                         </div>
 
@@ -60,7 +60,7 @@
                             *ngFor="let productOption of product.product_options">
                             <input type="radio" id="product_option_id_{{productOption.id}}" formControlName="product_option_id" [value]="productOption.id" class="custom-control-input">
                             <label class="custom-control-label custom-control-label-secondary" for="product_option_id_{{productOption.id}}">
-                                {{productOption.name}} - <span class="font-weight-bold">{{productOption.price}}đ</span>
+                                {{productOption.name}} - <span class="font-weight-bold">{{productOption.price | number}}đ</span>
                             </label>
                         </div>
                         <div class="row align-items-end no-gutters mx-n2">
@@ -69,13 +69,13 @@
                                 <div class="input-group position-relative w-100">
                                     <a href="javascript:void(0)"
                                         class="down position-absolute pos-fixed-left-center pl-4 z-index-2"><i
-                                            class="far fa-minus" (click)="minus()"></i></a>
+                                            class="far fa-minus" (click)="minusItem()"></i></a>
                                     <input name="number" type="number" id="number"
                                         class="form-control w-100 px-6 text-center input-quality text-secondary h-60 fs-18 font-weight-bold border-0"
                                         value="1" formControlName="quantity">
                                     <a href="javascript:void(0)"
                                         class="up position-absolute pos-fixed-right-center pr-4 z-index-2"><i
-                                            class="far fa-plus" (click)="plus()"></i>
+                                            class="far fa-plus" (click)="plusItem()"></i>
                                     </a>
                                 </div>
                             </div>

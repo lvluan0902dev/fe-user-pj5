@@ -1,7 +1,7 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product.model';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { ShopService } from 'src/app/services/shop/shop.service';
@@ -32,7 +32,8 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
     private title: Title,
     private shopService: ShopService,
     private cartService: CartService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.title.setTitle('Sản phẩm');
   }
@@ -81,20 +82,22 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
     
     this.cartService.addToCart(this.form.value).subscribe((response) => {
       if (response.success == 1) {
-
+        this.router.navigateByUrl('/gio-hang');
       } else {
-        alert("Error");
+        alert(response.message);
       }
     })
   }
 
-  public minus() {
+  public minusItem() {
     if (Number(this.form.value.quantity) > 1) {
       this.form.value.quantity = Number(this.form.value.quantity) - 1;
+    } else {
+      this.form.value.quantity = 1;
     }
   }
 
-  public plus() {
+  public plusItem() {
     this.form.value.quantity = Number(this.form.value.quantity) + 1;
   }
 }
