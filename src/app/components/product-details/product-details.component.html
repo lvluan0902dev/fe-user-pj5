@@ -47,10 +47,10 @@
                         <a href="javascript:void(0)" class="pl-3 border-left border-gray-2 text-body">{{product.view_count}} lượt xem</a>
                     </div>
                     <p class="mb-5" [innerHTML]="product.short_description"></p>
-                    <form>
+                    <form [formGroup]="form">
                         <p class="text-secondary font-weight-600 mb-3">Chọn kích thước: </p>
                         <div class="custom-control custom-radio mb-2">
-                            <input type="radio" id="product_id_{{product.id}}" name="product_option" class="custom-control-input" checked>
+                            <input type="radio" id="product_id_{{product.id}}" formControlName="product_option_id" [value]="-1" class="custom-control-input" [checked]="true">
                             <label class="custom-control-label custom-control-label-secondary" for="product_id_{{product.id}}">
                                 {{product.option_name}} - <span class="font-weight-bold">{{product.option_price}} đ</span>
                             </label>
@@ -58,7 +58,7 @@
 
                         <div class="custom-control custom-radio mb-2"
                             *ngFor="let productOption of product.product_options">
-                            <input type="radio" id="product_option_id_{{productOption.id}}" name="product_option" class="custom-control-input">
+                            <input type="radio" id="product_option_id_{{productOption.id}}" formControlName="product_option_id" [value]="productOption.id" class="custom-control-input">
                             <label class="custom-control-label custom-control-label-secondary" for="product_option_id_{{productOption.id}}">
                                 {{productOption.name}} - <span class="font-weight-bold">{{productOption.price}}đ</span>
                             </label>
@@ -69,18 +69,18 @@
                                 <div class="input-group position-relative w-100">
                                     <a href="javascript:void(0)"
                                         class="down position-absolute pos-fixed-left-center pl-4 z-index-2"><i
-                                            class="far fa-minus"></i></a>
+                                            class="far fa-minus" (click)="minus()"></i></a>
                                     <input name="number" type="number" id="number"
                                         class="form-control w-100 px-6 text-center input-quality text-secondary h-60 fs-18 font-weight-bold border-0"
-                                        value="1" required>
+                                        value="1" formControlName="quantity">
                                     <a href="javascript:void(0)"
                                         class="up position-absolute pos-fixed-right-center pr-4 z-index-2"><i
-                                            class="far fa-plus"></i>
+                                            class="far fa-plus" (click)="plus()"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="col-sm-8 mb-5 w-100 px-2">
-                                <button type="submit"
+                                <button type="button" (click)="addToCart()"
                                     class="btn btn-lg fs-18 btn-secondary btn-block h-60 bg-hover-primary border-0">Thêm vào giỏ hàng
                                 </button>
                             </div>
