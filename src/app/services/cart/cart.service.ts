@@ -71,4 +71,8 @@ export class CartService {
     let payload = null;
     return this.httpService.post('front/plus-item/' + id, payload, httpOptions);
   }
+
+  public getTotalPrice() {
+    
+  }
 }
