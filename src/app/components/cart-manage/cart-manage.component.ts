@@ -14,6 +14,7 @@ declare var themeInit: any;
 export class CartManageComponent implements OnInit, AfterViewInit {
   public url = environment.url + '/';
   public cart: CartItem[] = [];
+  public totalPrice: number = 0;
 
   constructor(
     private title: Title,
@@ -36,6 +37,8 @@ export class CartManageComponent implements OnInit, AfterViewInit {
         this.cart = response.data;
       }
     });
+
+    this.getTotalPrice();
   }
 
   /**
@@ -78,5 +81,13 @@ export class CartManageComponent implements OnInit, AfterViewInit {
           alert("Error");
         }
       });
+    }
+
+    public getTotalPrice() {
+      this.cartService.getTotalPrice().subscribe((response) => {
+        if (response.success == 1) {
+          this.totalPrice = response.data;
+        }
+      })
     }
 }
