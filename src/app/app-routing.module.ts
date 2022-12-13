@@ -7,6 +7,7 @@ import { CartManageComponent } from './components/cart-manage/cart-manage.compon
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { HomeComponent } from './components/home/home.component';
+import { OrderComponent } from './components/order/order.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ShopComponent } from './components/shop/shop.component';
 
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'gio-hang',
     component: CartManageComponent
+  },
+  {
+    path: 'dat-hang',
+    component: OrderComponent
   }
 ];
 

@@ -83,7 +83,7 @@ export class CartManageComponent implements OnInit, AfterViewInit {
       });
     }
 
-    public getTotalPrice() {
+    private getTotalPrice() {
       this.cartService.getTotalPrice().subscribe((response) => {
         if (response.success == 1) {
           this.totalPrice = response.data;

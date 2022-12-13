@@ -1,0 +1,99 @@
+<main id="content">
+    <section class="pb-lg-13 pb-11">
+        <div class="container">
+            <form>
+                <div class="row">
+                    <div class="col-lg-4 pb-lg-0 pb-11 order-lg-last">
+                        <div class="card border-0" style="box-shadow: 0 0 10px 0 rgba(0,0,0,0.1)">
+                            <div class="card-header px-0 mx-6 bg-transparent py-5">
+                                <h4 class="fs-24 mb-5">Thông tin đơn hàng</h4>
+                                <div class="media w-100 mb-4" *ngFor="let item of cartItem">
+                                    <div class="w-60px mr-3">
+                                        <img [src]="url + item.product.image_path" [alt]="item.product.image_name">
+                                    </div>
+                                    <div class="media-body d-flex">
+                                        <div class="cart-price pr-6">
+                                            <a class="text-secondary pr-6">{{item.product.name}}<span
+                                                    class="text-body"> x{{item.quantity | number}}</span></a>
+                                            <p class="fs-14 text-secondary mb-0 mt-1" *ngIf="item.product_option_id">
+                                                Kích thước:<span class="text-body">
+                                                    {{item.product_option.name}}</span></p>
+                                            <p class="fs-14 text-secondary mb-0 mt-1" *ngIf="item.product_option_id == null">
+                                                Kích thước:<span class="text-body">
+                                                    {{item.product.option_name}}</span></p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <p class="fs-14 text-secondary mb-0 font-weight-bold">{{item.totalPrice | number}}đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-6 pt-5">
+                                <div class="d-flex align-items-center mb-2">
+                                    <span>Tổng tiền sản phẩm:</span>
+                                    <span class="d-block ml-auto text-secondary font-weight-bold">{{totalPrice | number}}đ</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <span>Phí vận chuyển:</span>
+                                    <span class="d-block ml-auto text-secondary font-weight-bold">{{30000 |
+                                        number}}đ</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent px-0 pb-1 mx-6">
+                                <div class="d-flex align-items-center font-weight-bold mb-3">
+                                    <span class="text-secondary">Tổng tiền:</span>
+                                    <span class="d-block ml-auto text-secondary fs-24 font-weight-bold">{{totalPrice + 30000 | number}}đ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 pr-xl-15 order-lg-first form-control-01">
+                        <h4 class="fs-24 pt-1 mb-4">Thông tin nhận hàng</h4>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-md-12 mb-md-0 mb-4">
+                                    <label class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Họ và
+                                        tên</label>
+                                    <input type="text" class="form-control border-0" id="full-name" name="full_name"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-md-12 mb-md-0 mb-4">
+                                    <label class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Địa
+                                        chỉ</label>
+                                    <input type="text" class="form-control border-0" id="address" name="address"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-md-12 mb-md-0 mb-4">
+                                    <label class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Số điện
+                                        thoại</label>
+                                    <input type="text" class="form-control border-0" id="phone_number"
+                                        name="phone_number" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-md-12 mb-md-0 mb-4">
+                                    <label
+                                        class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Email</label>
+                                    <input type="text" class="form-control border-0" id="email" name="email"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="btn btn-secondary bg-hover-primary border-hover-primary px-7 mt-6">Đặt hàng</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
