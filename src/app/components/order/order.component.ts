@@ -78,7 +78,7 @@ export class OrderComponent implements OnInit {
 
       this.cartService.order(formData).subscribe((response) => {
         if (response.success == 1) {
-          alert("Đặt hàng thành công");
+          alert(response.success);
           this.router.navigateByUrl('/');
         } else {
 
