@@ -76,4 +76,9 @@ export class CartService {
     let key = localStorage.getItem('key');
     return this.httpService.get('front/get-cart-total-price/' + key, httpOptions);
   }
+
+  public order(data: any) {
+    let payload = data;
+    return this.httpService.post('front/cart-order', payload, httpOptions);
+  }
 }

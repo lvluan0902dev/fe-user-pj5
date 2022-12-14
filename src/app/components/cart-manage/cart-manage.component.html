@@ -87,7 +87,12 @@
                                 <span class="text-secondary">Tổng tiền:</span>
                                 <span class="d-block ml-auto text-secondary fs-24 font-weight-bold">{{totalPrice | number}}đ</span>
                             </div>
-                            <a routerLink="/dat-hang"
+                            <a *ngIf="totalPrice > 0" routerLink="/dat-hang"
+                                class="btn btn-secondary btn-block bg-hover-primary border-hover-primary"
+                                value="Check Out">Đặt hàng
+                            </a>
+
+                            <a *ngIf="totalPrice <= 0"
                                 class="btn btn-secondary btn-block bg-hover-primary border-hover-primary"
                                 value="Check Out">Đặt hàng
                             </a>

@@ -1,7 +1,7 @@
 <main id="content">
     <section class="pb-lg-13 pb-11">
         <div class="container">
-            <form>
+            <form [formGroup]="form">
                 <div class="row">
                     <div class="col-lg-4 pb-lg-0 pb-11 order-lg-last">
                         <div class="card border-0" style="box-shadow: 0 0 10px 0 rgba(0,0,0,0.1)">
@@ -13,17 +13,19 @@
                                     </div>
                                     <div class="media-body d-flex">
                                         <div class="cart-price pr-6">
-                                            <a class="text-secondary pr-6">{{item.product.name}}<span
-                                                    class="text-body"> x{{item.quantity | number}}</span></a>
+                                            <a class="text-secondary pr-6">{{item.product.name}}<span class="text-body">
+                                                    x{{item.quantity | number}}</span></a>
                                             <p class="fs-14 text-secondary mb-0 mt-1" *ngIf="item.product_option_id">
                                                 Kích thước:<span class="text-body">
                                                     {{item.product_option.name}}</span></p>
-                                            <p class="fs-14 text-secondary mb-0 mt-1" *ngIf="item.product_option_id == null">
+                                            <p class="fs-14 text-secondary mb-0 mt-1"
+                                                *ngIf="item.product_option_id == null">
                                                 Kích thước:<span class="text-body">
                                                     {{item.product.option_name}}</span></p>
                                         </div>
                                         <div class="ml-auto">
-                                            <p class="fs-14 text-secondary mb-0 font-weight-bold">{{item.totalPrice | number}}đ</p>
+                                            <p class="fs-14 text-secondary mb-0 font-weight-bold">{{item.totalPrice |
+                                                number}}đ</p>
                                         </div>
                                     </div>
                                 </div>
@@ -31,7 +33,8 @@
                             <div class="card-body px-6 pt-5">
                                 <div class="d-flex align-items-center mb-2">
                                     <span>Tổng tiền sản phẩm:</span>
-                                    <span class="d-block ml-auto text-secondary font-weight-bold">{{totalPrice | number}}đ</span>
+                                    <span class="d-block ml-auto text-secondary font-weight-bold">{{totalPrice |
+                                        number}}đ</span>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <span>Phí vận chuyển:</span>
@@ -42,7 +45,8 @@
                             <div class="card-footer bg-transparent px-0 pb-1 mx-6">
                                 <div class="d-flex align-items-center font-weight-bold mb-3">
                                     <span class="text-secondary">Tổng tiền:</span>
-                                    <span class="d-block ml-auto text-secondary fs-24 font-weight-bold">{{totalPrice + 30000 | number}}đ</span>
+                                    <span class="d-block ml-auto text-secondary fs-24 font-weight-bold">{{totalPrice +
+                                        30000 | number}}đ</span>
                                 </div>
                             </div>
                         </div>
@@ -53,9 +57,14 @@
                             <div class="row">
                                 <div class="col-md-12 mb-md-0 mb-4">
                                     <label class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Họ và
-                                        tên</label>
-                                    <input type="text" class="form-control border-0" id="full-name" name="full_name"
+                                        tên <span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control border-0" id="full-name" formControlName="full_name"
                                         autocomplete="off">
+                                        <div *ngIf="form.controls.full_name.invalid && submitted">
+                                            <div *ngIf="form.controls.full_name.errors?.['required']">
+                                                <small class="p-error">Họ và tên là bắt buộc</small>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -63,9 +72,14 @@
                             <div class="row">
                                 <div class="col-md-12 mb-md-0 mb-4">
                                     <label class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Địa
-                                        chỉ</label>
-                                    <input type="text" class="form-control border-0" id="address" name="address"
+                                        chỉ <span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control border-0" id="address" formControlName="address"
                                         autocomplete="off">
+                                        <div *ngIf="form.controls.address.invalid && submitted">
+                                            <div *ngIf="form.controls.address.errors?.['required']">
+                                                <small class="p-error">Địa chỉ là bắt buộc</small>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -73,9 +87,14 @@
                             <div class="row">
                                 <div class="col-md-12 mb-md-0 mb-4">
                                     <label class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Số điện
-                                        thoại</label>
+                                        thoại <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control border-0" id="phone_number"
-                                        name="phone_number" autocomplete="off">
+                                    formControlName="phone_number" autocomplete="off">
+                                    <div *ngIf="form.controls.phone_number.invalid && submitted">
+                                        <div *ngIf="form.controls.phone_number.errors?.['required']">
+                                            <small class="p-error">Số điện thoại là bắt buộc</small>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -83,14 +102,24 @@
                             <div class="row">
                                 <div class="col-md-12 mb-md-0 mb-4">
                                     <label
-                                        class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Email</label>
-                                    <input type="text" class="form-control border-0" id="email" name="email"
+                                        class="mb-2 fs-13 letter-spacing-01 font-weight-600 text-uppercase">Email <span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control border-0" id="email" formControlName="email"
                                         autocomplete="off">
+                                        <div *ngIf="form.controls.email.invalid && submitted">
+                                            <div *ngIf="form.controls.email.errors?.['required']">
+                                                <small class="p-error">Email là bắt buộc</small>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="form.controls.email.invalid && submitted">
+                                            <div *ngIf="form.controls.email.errors?.['email']">
+                                                <small class="p-error">Email không đúng định dạng</small>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit"
-                            class="btn btn-secondary bg-hover-primary border-hover-primary px-7 mt-6">Đặt hàng</button>
+                        <button type="button"
+                            class="btn btn-secondary bg-hover-primary border-hover-primary px-7 mt-6" (click)="submit()">Xác nhận</button>
                     </div>
                 </div>
             </form>

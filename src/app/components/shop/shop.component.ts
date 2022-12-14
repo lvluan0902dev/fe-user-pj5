@@ -101,9 +101,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
     this.shopService.shop(this.event).subscribe((response) => {
       this.products = response.data;
       this.totalResult = response.total_result;
+      themeInit();
     })
-    
-    themeInit();
   }
 
   public filterByBrand(id: any) {
