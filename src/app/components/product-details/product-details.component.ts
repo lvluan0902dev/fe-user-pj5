@@ -100,4 +100,9 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
   public plusItem() {
     this.form.value.quantity = Number(this.form.value.quantity) + 1;
   }
+
+  public resetQuantity() {
+    $("#quantity").val(1);
+    this.form.value.quantity = 1;
+  }
 }
