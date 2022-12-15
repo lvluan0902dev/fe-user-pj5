@@ -4,8 +4,14 @@
 
 export const environment = {
   production: false,
+  // For local
   apiUrl: 'http://api.pj5.local/api',
-  url: 'http://api.pj5.local'
+  url: 'http://api.pj5.local',
+  
+
+  // For live site
+  // apiUrl: 'https://apipj5.vuimungcamgiang.com/api',
+  // url: 'https://apipj5.vuimungcamgiang.com',
 };
 
 /*

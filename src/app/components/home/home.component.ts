@@ -87,6 +87,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
       if (response.success == 1) {
         this.sliders = response.data;
         this.s_slider_slicked = false;
+        themeInit();
       }
     });
   }
@@ -96,6 +97,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
       if (response.success == 1) {
         this.testimonials = response.data;
         this.s_testimonial_slicked = false;
+        themeInit();
       }
     });
   }
@@ -105,6 +107,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
       if (response.success == 1) {
         this.beautyImages = response.data;
         this.s_beautyImage_slicked = false;
+        themeInit();
       }
     });
   }
@@ -114,6 +117,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
       if (response.success == 1) {
         this.productsLatest = response.data;
         this.s_product_latest_slicked = false;
+        themeInit();
       }
     });
   }
@@ -122,6 +126,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
     this.homeService.getMostViewedProducts().subscribe((response) => {
       if (response.success == 1) {
         this.mostViewedProducts = response.data;
+        themeInit();
       }
     })
   }
@@ -131,6 +136,7 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
       if (response.success == 1) {
         this.blogs = response.data;
         this.s_blog_slicked = false;
+        themeInit();
       }
     })
   }

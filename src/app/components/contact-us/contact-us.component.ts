@@ -44,6 +44,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
     this.contactUsService.getAllContactSetting().subscribe((response) => {
       if (response.success == 1) {
         this.contactSettings = response.data;
+        themeInit();
       }
     });
   }
@@ -66,6 +67,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
           this.successMessage = response.message;
           this.submitted = false;
           this.form.reset();
+          themeInit();
         } else {
           this.errorMessage = response.message;
         }

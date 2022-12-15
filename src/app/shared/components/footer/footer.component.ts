@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ContactUsService } from 'src/app/services/contact-us/contact-us.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -40,6 +42,7 @@ export class FooterComponent implements OnInit {
       this.contactUsService.registerNotificationEmail(formData).subscribe((response) => {
         if (response.success == 1) {
           this.successMessage = response.message;
+          $("#successMessage").html(this.successMessage);
           this.submitted = false;
           this.form.reset();
         } else {

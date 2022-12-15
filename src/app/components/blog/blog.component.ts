@@ -49,6 +49,7 @@ export class BlogComponent implements OnInit, AfterViewInit {
     this.blogService.getAllBlogCategory().subscribe((response) => {
       if (response.success == 1) {
         this.blogCategories = response.data;
+        themeInit();
       }
     })
   }
@@ -69,9 +70,8 @@ export class BlogComponent implements OnInit, AfterViewInit {
     this.blogService.blog(this.event).subscribe((response) => {
       this.blogs = response.data;
       this.totalResult = response.total_result;
+      themeInit();
     })
-    
-    themeInit();
   }
 
   public filterByCategory(id: any) {

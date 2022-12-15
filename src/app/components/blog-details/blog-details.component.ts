@@ -38,6 +38,7 @@ export class BlogDetailsComponent implements OnInit, AfterViewInit {
     this.blogService.getBlog(this.blogUrl).subscribe((response) => {
       if (response.success == 1) {
         this.blog = response.data;
+        themeInit();
       }
     })
   }

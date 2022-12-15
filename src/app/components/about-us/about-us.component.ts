@@ -45,6 +45,7 @@ export class AboutUsComponent implements OnInit, AfterViewInit, AfterViewChecked
       if (response.success == 1) {
         this.staffs = response.data;
         this.s_staff_slicked = false;
+        themeInit();
       }
     })
   }

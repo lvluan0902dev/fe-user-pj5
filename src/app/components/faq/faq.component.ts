@@ -38,6 +38,7 @@ export class FaqComponent implements OnInit, AfterViewInit, AfterContentInit {
     this.faqService.getAllFaq().subscribe((response) => {
       if (response.success == 1) {
         this.faqs = response.data;
+        themeInit();
       }
     });
   }

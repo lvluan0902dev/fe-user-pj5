@@ -67,6 +67,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
         this.product = response.data;
         this.s_product_image_1_slicked = false;
         this.s_product_image_2_slicked = false;
+        themeInit();
       }
     });
   }
