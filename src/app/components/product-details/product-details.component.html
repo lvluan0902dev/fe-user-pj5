@@ -40,27 +40,36 @@
                 </div>
                 <div class="col-md-6">
                     <p class="d-flex align-items-center mb-3">
-                        <span class="fs-18 text-secondary font-weight-bold ml-3">{{product.option_price | number}}đ</span>
+                        <span class="fs-18 text-secondary font-weight-bold ml-3">{{product.option_price |
+                            number}}đ</span>
                     </p>
                     <h2 class="fs-24 mb-2">{{product.name}}</h2>
                     <div class="d-flex align-items-center flex-wrap mb-3 lh-12">
-                        <a href="javascript:void(0)" class="pl-3 border-left border-gray-2 text-body">{{product.view_count}} lượt xem</a>
+                        <a href="javascript:void(0)"
+                            class="pl-3 border-left border-gray-2 text-body">{{product.view_count}} lượt xem</a>
                     </div>
                     <p class="mb-5" [innerHTML]="product.short_description"></p>
                     <form [formGroup]="form">
                         <p class="text-secondary font-weight-600 mb-3">Chọn kích thước: </p>
                         <div class="custom-control custom-radio mb-2">
-                            <input type="radio" id="product_id_{{product.id}}" formControlName="product_option_id" [value]="-1" class="custom-control-input" [checked]="true" (click)="resetQuantity()">
-                            <label class="custom-control-label custom-control-label-secondary" for="product_id_{{product.id}}" (click)="resetQuantity()">
-                                {{product.option_name}} - <span class="font-weight-bold">{{product.option_price | number}}đ</span>
+                            <input type="radio" id="product_id_{{product.id}}" formControlName="product_option_id"
+                                [value]="-1" class="custom-control-input" [checked]="true" (click)="setQuantity(-1)">
+                            <label class="custom-control-label custom-control-label-secondary"
+                                for="product_id_{{product.id}}" (click)="setQuantity(-1)">
+                                {{product.option_name}} - <span class="font-weight-bold">{{product.option_price |
+                                    number}}đ</span>
                             </label>
                         </div>
 
                         <div class="custom-control custom-radio mb-2"
                             *ngFor="let productOption of product.product_options">
-                            <input type="radio" id="product_option_id_{{productOption.id}}" formControlName="product_option_id" [value]="productOption.id" class="custom-control-input" (click)="resetQuantity()">
-                            <label class="custom-control-label custom-control-label-secondary" for="product_option_id_{{productOption.id}}" (click)="resetQuantity()">
-                                {{productOption.name}} - <span class="font-weight-bold">{{productOption.price | number}}đ</span>
+                            <input type="radio" id="product_option_id_{{productOption.id}}"
+                                formControlName="product_option_id" [value]="productOption.id"
+                                class="custom-control-input" (click)="setQuantity(productOption.id)">
+                            <label class="custom-control-label custom-control-label-secondary"
+                                for="product_option_id_{{productOption.id}}" (click)="setQuantity(productOption.id)">
+                                {{productOption.name}} - <span class="font-weight-bold">{{productOption.price |
+                                    number}}đ</span>
                             </label>
                         </div>
                         <div class="row align-items-end no-gutters mx-n2">
@@ -71,7 +80,8 @@
                                         class="down position-absolute pos-fixed-left-center pl-4 z-index-2"><i
                                             class="far fa-minus" (click)="minusItem()"></i></a>
                                     <input name="number" type="number" id="quantity"
-                                        class="form-control w-100 px-6 text-center input-quality text-secondary h-60 fs-18 font-weight-bold border-0" formControlName="quantity">
+                                        class="form-control w-100 px-6 text-center input-quality text-secondary h-60 fs-18 font-weight-bold border-0"
+                                        value="1" formControlName="quantity">
                                     <a href="javascript:void(0)"
                                         class="up position-absolute pos-fixed-right-center pr-4 z-index-2"><i
                                             class="far fa-plus" (click)="plusItem()"></i>
@@ -80,7 +90,8 @@
                             </div>
                             <div class="col-sm-8 mb-5 w-100 px-2">
                                 <button type="button" (click)="addToCart()"
-                                    class="btn btn-lg fs-18 btn-secondary btn-block h-60 bg-hover-primary border-0">Thêm vào giỏ hàng
+                                    class="btn btn-lg fs-18 btn-secondary btn-block h-60 bg-hover-primary border-0">Thêm
+                                    vào giỏ hàng
                                 </button>
                             </div>
                         </div>
@@ -111,7 +122,8 @@
                 </ul>
                 <div class="tab-content bg-white-md shadow-none py-md-5 p-0">
                     <div id="collapse-tabs-accordion-01">
-                        <div class="tab-pane tab-pane-parent fade show active" id="product-detail" role="tabpanel" *ngIf="product.product_detail">
+                        <div class="tab-pane tab-pane-parent fade show active" id="product-detail" role="tabpanel"
+                            *ngIf="product.product_detail">
                             <div class="card border-0 bg-transparent">
                                 <div class="card-header border-0 d-block d-md-none bg-transparent px-0 py-1"
                                     id="headingDetails-01">
@@ -143,7 +155,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane tab-pane-parent fade" id="product-how-to-use" role="tabpanel" *ngIf="product.how_to_use">
+                        <div class="tab-pane tab-pane-parent fade" id="product-how-to-use" role="tabpanel"
+                            *ngIf="product.how_to_use">
                             <div class="card border-0 bg-transparent">
                                 <div class="card-header border-0 d-block d-md-none bg-transparent px-0 py-1"
                                     id="headinghow-to-use-01">
@@ -166,7 +179,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane tab-pane-parent fade" id="ingredients" role="tabpanel" *ngIf="product.ingredients">
+                        <div class="tab-pane tab-pane-parent fade" id="ingredients" role="tabpanel"
+                            *ngIf="product.ingredients">
                             <div class="card border-0 bg-transparent">
                                 <div class="card-header border-0 d-block d-md-none bg-transparent px-0 py-1"
                                     id="headingingredients-01">

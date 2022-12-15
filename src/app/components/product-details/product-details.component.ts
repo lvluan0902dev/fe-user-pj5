@@ -41,13 +41,13 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
   ngAfterViewChecked(): void {
     if (!this.s_product_image_1_slicked && this.product) {
       $(".s-product-image-1").slick("unslick");
-      $(".s-product-image-1").slick({"slidesToShow": 1,"vertical":true, "autoplay":false,"dots":false,"arrows":false,"asNavFor": ".slider-nav","responsive":[{"breakpoint": 1200,"settings": {"vertical": false}}]});
+      $(".s-product-image-1").slick({ "slidesToShow": 1, "vertical": true, "autoplay": false, "dots": false, "arrows": false, "asNavFor": ".slider-nav", "responsive": [{ "breakpoint": 1200, "settings": { "vertical": false } }] });
       this.s_product_image_1_slicked = true;
     }
 
     if (!this.s_product_image_2_slicked && this.product) {
       $(".s-product-image-2").slick("unslick");
-      $(".s-product-image-2").slick({"slidesToShow": 4,"vertical":true, "autoplay":false,"dots":false,"arrows":false,"asNavFor": ".slider-for","focusOnSelect": true,"responsive":[{"breakpoint": 1200,"settings": {"vertical": false}}]});
+      $(".s-product-image-2").slick({ "slidesToShow": 4, "vertical": true, "autoplay": false, "dots": false, "arrows": false, "asNavFor": ".slider-for", "focusOnSelect": true, "responsive": [{ "breakpoint": 1200, "settings": { "vertical": false } }] });
       this.s_product_image_2_slicked = true;
     }
   }
@@ -73,13 +73,15 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
 
   public addToCart() {
     this.form.value.product_id = this.product.id;
-    if (Number(this.form.value.quantity) == 0) {
+    if (Number($("#quantity").val()) == 0) {
       this.form.value.quantity = 1;
+    } else {
+      this.form.value.quantity = Number($("#quantity").val());
     }
     if (this.form.value.product_option_id == -1) {
       this.form.value.product_option_id = null;
     }
-    
+
     this.cartService.addToCart(this.form.value).subscribe((response) => {
       if (response.success == 1) {
         this.router.navigateByUrl('/gio-hang');
@@ -90,19 +92,23 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
   }
 
   public minusItem() {
-    if (Number(this.form.value.quantity) > 1) {
-      this.form.value.quantity = Number(this.form.value.quantity) - 1;
+    if (Number($("#quantity").val()) > 1) {
+      this.form.value.quantity = Number($("#quantity").val()) - 1;
     } else {
       this.form.value.quantity = 1;
     }
   }
 
   public plusItem() {
-    this.form.value.quantity = Number(this.form.value.quantity) + 1;
+    this.form.value.quantity = Number($("#quantity").val()) + 1;
   }
 
-  public resetQuantity() {
-    $("#quantity").val(1);
-    this.form.value.quantity = 1;
+  /**
+   * 
+   * @param id - product option id
+   */
+  public setQuantity(id: number) {
+    $("#quantity").val(this.form.value.quantity);
+    this.form.value.product_option_id = id;
   }
 }
