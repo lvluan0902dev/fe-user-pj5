@@ -122,7 +122,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
     this.form.value.product_option_id = id;
   }
 
-  public getProductsRelated() {
+  private getProductsRelated() {
     this.shopService.getProductsRelated(this.productUrl).subscribe((response) => {
       if (response.success == 1) {
         this.productsRelated = response.data;
