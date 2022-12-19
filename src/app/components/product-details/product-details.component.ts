@@ -68,6 +68,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
   ngOnInit(): void {
     this.productUrl = this.activatedRoute.snapshot.paramMap.get('url');
     this.getProduct();
+    this.getProductsRelated();
   }
 
   private getProduct() {
@@ -76,7 +77,6 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
         this.product = response.data;
         this.s_product_image_1_slicked = false;
         this.s_product_image_2_slicked = false;
-        this.getProductsRelated();
       }
     });
   }
@@ -123,7 +123,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
   }
 
   public getProductsRelated() {
-    this.shopService.getProductsRelated(this.product.id).subscribe((response) => {
+    this.shopService.getProductsRelated(this.productUrl).subscribe((response) => {
       if (response.success == 1) {
         this.productsRelated = response.data;
         this.s_product_related_slicked = false;
