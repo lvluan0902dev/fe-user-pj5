@@ -40,4 +40,12 @@ export class ShopService {
   public getProduct(url: any) {
     return this.httpService.get('front/get-product/' + url, httpOptions);
   }
+
+  /**
+ * 
+ * @param id - product id
+ */
+  public getProductsRelated(id: any) {
+    return this.httpService.get('front/get-products-related/' + id, httpOptions);
+  }
 }

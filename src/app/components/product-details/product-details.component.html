@@ -208,4 +208,37 @@
             </div>
         </div>
     </section>
+    <section class="pt-10 pt-lg-13 pb-9 pb-lg-11 border-top">
+        <div class="container">
+            <h3 class="text-center fs-34 mb-8">Có thể bạn cũng quan tâm</h3>
+            <div class="slick-slider mx-n2 s-product-related"
+                data-slick-options='{"slidesToShow": 4,"dots":false,"arrows":false,"responsive":[{"breakpoint": 1368,"settings": {"arrows":false,"dots":false}},{"breakpoint": 1200,"settings": {"slidesToShow":3,"arrows":false,"dots":false}},{"breakpoint": 992,"settings": {"slidesToShow":2,"arrows":false,"dots":false}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":false}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":false}}]}'>
+                <div class="box" *ngFor="let productRelated of productsRelated">
+                    <div class="card border-0 product" data-animate="fadeInUp">
+                        <div class="position-relative">
+                            <a routerLink="/san-pham/{{productRelated.url}}">
+                                <img [src]="url + productRelated.image_path" [alt]="productRelated.image_name">
+                                <div class="card-img-overlay d-flex p-3">
+                                    <div>
+                                        <span class="badge badge-primary">{{productRelated.product_category.name}}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body pt-4 text-center">
+                            <h2 class="card-title fs-15 font-weight-500 mb-2">{{productRelated.option_price |
+                                number}}đ</h2>
+                            <p class="card-text font-weight-bold fs-16 mb-1 text-secondary">
+                                <a routerLink="/san-pham/{{productRelated.url}}">{{productRelated.name}}</a>
+                            </p>
+                            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <span class="card-text fs-14 font-weight-400 pl-2 lh-1">{{productRelated.view_count}} lượt
+                                    xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>

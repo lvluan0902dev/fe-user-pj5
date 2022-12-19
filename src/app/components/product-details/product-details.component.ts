@@ -27,6 +27,9 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
     quantity: 1
   });
 
+  public productsRelated: Product[] = [];
+  private s_product_related_slicked: boolean = false;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private title: Title,
@@ -50,6 +53,12 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
       $(".s-product-image-2").slick({ "slidesToShow": 4, "vertical": true, "autoplay": false, "dots": false, "arrows": false, "asNavFor": ".slider-for", "focusOnSelect": true, "responsive": [{ "breakpoint": 1200, "settings": { "vertical": false } }] });
       this.s_product_image_2_slicked = true;
     }
+
+    if (!this.s_product_related_slicked && this.productsRelated) {
+      $(".s-product-related").slick("unslick");
+      $(".s-product-related").slick({ "slidesToShow": 4, "dots": false, "arrows": false, "responsive": [{ "breakpoint": 1368, "settings": { "arrows": false, "dots": false } }, { "breakpoint": 1200, "settings": { "slidesToShow": 3, "arrows": false, "dots": false } }, { "breakpoint": 992, "settings": { "slidesToShow": 2, "arrows": false, "dots": false } }, { "breakpoint": 768, "settings": { "slidesToShow": 2, "arrows": false, "dots": false } }, { "breakpoint": 576, "settings": { "slidesToShow": 1, "arrows": false, "dots": false } }] });
+      this.s_product_related_slicked = true;
+    }
   }
 
   ngAfterViewInit(): void {
@@ -67,6 +76,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
         this.product = response.data;
         this.s_product_image_1_slicked = false;
         this.s_product_image_2_slicked = false;
+        this.getProductsRelated();
       }
     });
   }
@@ -110,5 +120,14 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
   public setQuantity(id: number) {
     $("#quantity").val(this.form.value.quantity);
     this.form.value.product_option_id = id;
+  }
+
+  public getProductsRelated() {
+    this.shopService.getProductsRelated(this.product.id).subscribe((response) => {
+      if (response.success == 1) {
+        this.productsRelated = response.data;
+        this.s_product_related_slicked = false;
+      }
+    });
   }
 }
