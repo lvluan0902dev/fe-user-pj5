@@ -38,7 +38,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
     private fb: FormBuilder,
     private router: Router
   ) {
-    this.title.setTitle('Sản phẩm');
+    this.title.setTitle('Mỹ phẩm');
   }
 
   ngAfterViewChecked(): void {
