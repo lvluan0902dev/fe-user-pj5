@@ -9,22 +9,18 @@
                                 <h4 class="fs-24 mb-5">Thông tin đơn hàng</h4>
                                 <div class="media w-100 mb-4" *ngFor="let item of cartItem">
                                     <div class="w-60px mr-3">
-                                        <img [src]="url + item.product.image_path" [alt]="item.product.image_name">
+                                        <img [src]="url + item.image_path" [alt]="item.image_name">
                                     </div>
                                     <div class="media-body d-flex">
                                         <div class="cart-price pr-6">
-                                            <a class="text-secondary pr-6">{{item.product.name}}<span class="text-body">
+                                            <a class="text-secondary pr-6">{{item.product_name}}<span class="text-body">
                                                     x{{item.quantity | number}}</span></a>
-                                            <p class="fs-14 text-secondary mb-0 mt-1" *ngIf="item.product_option_id">
+                                            <p class="fs-14 text-secondary mb-0 mt-1">
                                                 Kích thước:<span class="text-body">
-                                                    {{item.product_option.name}}</span></p>
-                                            <p class="fs-14 text-secondary mb-0 mt-1"
-                                                *ngIf="item.product_option_id == null">
-                                                Kích thước:<span class="text-body">
-                                                    {{item.product.option_name}}</span></p>
+                                                    {{item.option_name}}</span></p>
                                         </div>
                                         <div class="ml-auto">
-                                            <p class="fs-14 text-secondary mb-0 font-weight-bold">{{item.totalPrice |
+                                            <p class="fs-14 text-secondary mb-0 font-weight-bold">{{item.quantity * item.option_price |
                                                 number}}đ</p>
                                         </div>
                                     </div>

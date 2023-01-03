@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class OrderComponent implements OnInit {
   public url = environment.url + '/';
-  public cartItem: CartItem[] = [];
+  public cartItem: any;
   public totalPrice: number = 0;
   public form = this.fb.group({
     full_name: ['', Validators.required],
@@ -49,23 +49,25 @@ export class OrderComponent implements OnInit {
   public submit() {
     this.submitted = true;
     if (this.form.status == 'VALID') {
-      var formData = new FormData();
+      // var formData = new FormData();
       var data = this.form.value as any;
-      for (let key of Object.keys(data)) {
-        if (data[key] == null || data[key] == '') {
-          formData.append(key, '');
-        } else {
-          formData.append(key, data[key]);
-        }
-      }
-      let key = localStorage.getItem('key');
-      if (key) {
-        formData.append('key', key);
-      } else {
-        formData.append('key', '');
-      }
+      // for (let key of Object.keys(data)) {
+      //   if (data[key] == null || data[key] == '') {
+      //     formData.append(key, '');
+      //   } else {
+      //     formData.append(key, data[key]);
+      //   }
+      // }
 
-      this.cartService.order(formData).subscribe((response) => {
+      // let cart = [];
+
+      // if (localStorage.getItem('cart')) {
+      //   cart = JSON.parse(localStorage.getItem('cart') || '{}');
+      // }
+
+      // formData.append('cart', cart);
+
+      this.cartService.order(data).subscribe((response) => {
         if (response.success == 1) {
           alert(response.message);
           this.router.navigateByUrl('/');

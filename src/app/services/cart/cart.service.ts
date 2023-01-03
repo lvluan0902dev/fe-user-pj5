@@ -115,7 +115,14 @@ export class CartService {
   }
 
   public order(data: any) {
-    let payload = data;
+    let cart = this.getCart();
+    let payload = {
+      full_name: data.full_name,
+      address: data.address,
+      phone_number: data.phone_number,
+      email: data.email,
+      cart: cart
+    };
     return this.httpService.post('front/cart-order', payload, httpOptions);
   }
 }
