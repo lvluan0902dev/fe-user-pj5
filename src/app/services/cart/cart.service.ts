@@ -18,30 +18,17 @@ export class CartService {
   ) { }
 
   public getCart() {
-    let key = localStorage.getItem('key');
-    return this.httpService.get('front/get-cart/' + key, httpOptions);
-  }
-
-  // public addToCart(data: any) {
-  //   let key = localStorage.getItem('key');
-  //   if (!key) {
-  //     key = this.randomKey(20);
-  //     localStorage.setItem('key', key);
-  //   }
-  //   let payload = {
-  //     product_id: data.product_id,
-  //     product_option_id: data.product_option_id,
-  //     quantity: data.quantity
-  //   };
-  //   return this.httpService.post('front/add-to-cart/' + key, payload, httpOptions);
-  // }
-
-  public addToCart(data: any, product: any, product_option: any) {
     let cart = [];
 
     if (localStorage.getItem('cart')) {
       cart = JSON.parse(localStorage.getItem('cart') || '{}');
     }
+
+    return cart;
+  }
+
+  public addToCart(data: any, product: any, product_option: any) {
+    let cart = this.getCart();
 
     cart.push({
       product_id: data.product_id,
@@ -55,7 +42,7 @@ export class CartService {
     });
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    
+
     return true;
   }
 
@@ -109,8 +96,14 @@ export class CartService {
   }
 
   public getTotalPrice() {
-    let key = localStorage.getItem('key');
-    return this.httpService.get('front/get-cart-total-price/' + key, httpOptions);
+    let totalPrice = 0;
+    let cart = this.getCart();
+
+    cart.forEach((item: { option_price: number; quantity: number; }) => {
+      totalPrice += item.option_price * item.quantity;
+    });
+
+    return totalPrice;
   }
 
   public order(data: any) {

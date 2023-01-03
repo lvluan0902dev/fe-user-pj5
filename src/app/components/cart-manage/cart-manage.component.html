@@ -15,17 +15,13 @@
                             <th scope="row" class="w-xl-695 pl-xl-5 py-4">
                                 <div class="media align-items-center">
                                     <div class="ml-3 mr-4">
-                                        <img [src]="url + item.product.image_path" [alt]="item.product.image_name"
+                                        <img [src]="url + item.image_path" [alt]="item.image_name"
                                             class="mw-75px">
                                     </div>
                                     <div class="media-body w-128px">
-                                        <p class="font-weight-500 mb-1 text-secondary">{{item.product.name}}</p>
-                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary" *ngIf="item.product_option_id">
-                                            <span>{{item.product_option.name}} - {{item.product_option.price | number}}đ</span>
-                                        </p>
-
-                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary" *ngIf="item.product_option_id == null">
-                                            <span>{{item.product.option_name}} - {{item.product.option_price | number}}đ</span>
+                                        <p class="font-weight-500 mb-1 text-secondary">{{item.product_name}}</p>
+                                        <p class="card-text font-weight-bold fs-14 mb-1 text-secondary">
+                                            <span>{{item.option_name}} - {{item.option_price | number}}đ</span>
                                         </p>
                                     </div>
                                 </div>
@@ -43,7 +39,7 @@
                                 </div>
                             </td>
                             <td class="align-middle">
-                                <p class="mb-0 text-secondary font-weight-bold mr-xl-11">{{item.totalPrice | number}}đ</p>
+                                <p class="mb-0 text-secondary font-weight-bold mr-xl-11">{{item.option_price * item.quantity | number}}đ</p>
                             </td>
                             <td class="align-middle text-right pr-5"><a href="javascript:void(0)" class="d-block"><i
                                         class="fal fa-times text-body" (click)="removeItem(item.id)"></i></a></td>

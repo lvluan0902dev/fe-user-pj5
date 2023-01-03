@@ -117,7 +117,7 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
     //   }
     // })
 
-    
+
 
     this.cartService.addToCart(this.form.value, this.product, product_option);
     this.router.navigateByUrl('/gio-hang');

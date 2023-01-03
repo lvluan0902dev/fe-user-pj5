@@ -39,22 +39,11 @@ export class OrderComponent implements OnInit {
   }
 
   private getCartItem() {
-    this.cartService.getCart().subscribe((response) => {
-      if (response.success == 1) {
-        this.cartItem = response.data;
-      }
-    })
+    this.cartItem = this.cartService.getCart();
   }
 
   private getTotalPrice() {
-    this.cartService.getTotalPrice().subscribe((response) => {
-      if (response.success == 1) {
-        this.totalPrice = response.data;
-        if (this.totalPrice <= 0) {
-          this.router.navigateByUrl('/');
-        }
-      }
-    })
+    this.totalPrice = this.cartService.getTotalPrice();
   }
 
   public submit() {

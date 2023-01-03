@@ -14,7 +14,7 @@ declare var themeInit: any;
 })
 export class CartManageComponent implements OnInit, AfterViewInit {
   public url = environment.url + '/';
-  public cart: CartItem[] = [];
+  public cart: any;
   public totalPrice: number = 0;
 
   constructor(
@@ -33,12 +33,8 @@ export class CartManageComponent implements OnInit, AfterViewInit {
   }
 
   private getCart() {
-    this.cartService.getCart().subscribe((response) => {
-      if (response.success == 1) {
-        this.cart = response.data;
-        this.getTotalPrice();
-      }
-    });
+    this.cart = this.cartService.getCart();
+    this.getTotalPrice();
   }
 
   /**
@@ -47,11 +43,11 @@ export class CartManageComponent implements OnInit, AfterViewInit {
    */
   public removeItem(id: any) {
     this.cartService.removeItem(id).subscribe((response) => {
-        if (response.success == 1) {
-          this.getCart();
-        } else {
-          alert("Error");
-        }
+      if (response.success == 1) {
+        this.getCart();
+      } else {
+        alert("Error");
+      }
     });
   }
 
@@ -93,21 +89,17 @@ export class CartManageComponent implements OnInit, AfterViewInit {
    * 
    * @param id - item id
    */
-    public plusItem(id: any) {
-      this.cartService.plusItem(id).subscribe((response) => {
-        if (response.success == 1) {
-          this.getCart();
-        } else {
-          alert("Error");
-        }
-      });
-    }
+  public plusItem(id: any) {
+    this.cartService.plusItem(id).subscribe((response) => {
+      if (response.success == 1) {
+        this.getCart();
+      } else {
+        alert("Error");
+      }
+    });
+  }
 
-    private getTotalPrice() {
-      this.cartService.getTotalPrice().subscribe((response) => {
-        if (response.success == 1) {
-          this.totalPrice = response.data;
-        }
-      })
-    }
+  private getTotalPrice() {
+    this.totalPrice = this.cartService.getTotalPrice();
+  }
 }
