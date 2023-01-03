@@ -53,16 +53,11 @@ export class CartManageComponent implements OnInit, AfterViewInit {
 
   /**
    * 
-   * @param id - item id
+   * @param index
    */
-  public minusItem(id: any) {
-    this.cartService.minusItem(id).subscribe((response) => {
-      if (response.success == 1) {
-        this.getCart();
-      } else {
-        alert("Error");
-      }
-    });
+  public minusItem(index: any) {
+    this.cartService.minusItem(index);
+    this.getCart();
   }
 
   /**
@@ -87,16 +82,11 @@ export class CartManageComponent implements OnInit, AfterViewInit {
 
   /**
    * 
-   * @param id - item id
+   * @param index
    */
-  public plusItem(id: any) {
-    this.cartService.plusItem(id).subscribe((response) => {
-      if (response.success == 1) {
-        this.getCart();
-      } else {
-        alert("Error");
-      }
-    });
+  public plusItem(index: any) {
+    this.cartService.plusItem(index);
+    this.getCart();
   }
 
   private getTotalPrice() {

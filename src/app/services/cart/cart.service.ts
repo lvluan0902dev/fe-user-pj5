@@ -66,20 +66,28 @@ export class CartService {
 
   /**
    * 
-   * @param id - item id
+   * @param index
    */
-  public minusItem(id: any) {
-    let payload = null;
-    return this.httpService.post('front/minus-item/' + id, payload, httpOptions);
+  public minusItem(index: any) {
+    let cart = this.getCart();
+    let quantity = cart[index].quantity;
+    quantity = quantity - 1;
+    if (quantity > 0) {
+      cart[index].quantity = quantity; 
+    } else {
+      cart.splice(index, 1);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   /**
    * 
-   * @param id - item id
+   * @param index
    */
-  public plusItem(id: any) {
-    let payload = null;
-    return this.httpService.post('front/plus-item/' + id, payload, httpOptions);
+  public plusItem(index: any) {
+    let cart = this.getCart();
+    cart[index].quantity = cart[index].quantity + 1;
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   /**

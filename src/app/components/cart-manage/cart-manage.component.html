@@ -11,7 +11,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="position-relative" *ngFor="let item of cart">
+                        <tr class="position-relative" *ngFor="let item of cart; let i = index">
                             <th scope="row" class="w-xl-695 pl-xl-5 py-4">
                                 <div class="media align-items-center">
                                     <div class="ml-3 mr-4">
@@ -29,12 +29,12 @@
                             <td class="align-middle">
                                 <div class="input-group position-relative w-128px">
                                     <a href="javascript:void(0)" class="down position-absolute pos-fixed-left-center pl-2 z-index-2"><i
-                                            class="far fa-minus" (click)="minusItem(item.id)"></i></a>
+                                            class="far fa-minus" (click)="minusItem(i)"></i></a>
                                     <input name="number[]" type="number"
                                         class="form-control form-control-sm px-6 fs-16 text-center input-quality border-0 h-35px"
                                         [value]="item.quantity" [id]="'quantityInput' + item.id" #quantityInput (change)="changeQuantity(quantityInput.value, item.id)">
                                     <a href="javascript:void(0)" class="up position-absolute pos-fixed-right-center pr-2 z-index-2"><i
-                                            class="far fa-plus" (click)="plusItem(item.id)"></i>
+                                            class="far fa-plus" (click)="plusItem(i)"></i>
                                     </a>
                                 </div>
                             </td>
