@@ -22,18 +22,41 @@ export class CartService {
     return this.httpService.get('front/get-cart/' + key, httpOptions);
   }
 
-  public addToCart(data: any) {
-    let key = localStorage.getItem('key');
-    if (!key) {
-      key = this.randomKey(20);
-      localStorage.setItem('key', key);
+  // public addToCart(data: any) {
+  //   let key = localStorage.getItem('key');
+  //   if (!key) {
+  //     key = this.randomKey(20);
+  //     localStorage.setItem('key', key);
+  //   }
+  //   let payload = {
+  //     product_id: data.product_id,
+  //     product_option_id: data.product_option_id,
+  //     quantity: data.quantity
+  //   };
+  //   return this.httpService.post('front/add-to-cart/' + key, payload, httpOptions);
+  // }
+
+  public addToCart(data: any, product: any, product_option: any) {
+    let cart = [];
+
+    if (localStorage.getItem('cart')) {
+      cart = JSON.parse(localStorage.getItem('cart') || '{}');
     }
-    let payload = {
+
+    cart.push({
       product_id: data.product_id,
       product_option_id: data.product_option_id,
-      quantity: data.quantity
-    };
-    return this.httpService.post('front/add-to-cart/' + key, payload, httpOptions);
+      quantity: data.quantity,
+      product_name: product.name,
+      option_name: product_option.option_name,
+      option_price: product_option.option_price,
+      image_name: product.image_name,
+      image_path: product.image_path
+    });
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    return true;
   }
 
   private randomKey(length: number) {

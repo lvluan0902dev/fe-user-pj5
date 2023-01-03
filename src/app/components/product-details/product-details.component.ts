@@ -88,17 +88,39 @@ export class ProductDetailsComponent implements OnInit, AfterViewInit, AfterView
     } else {
       this.form.value.quantity = Number($("#quantity").val());
     }
+
+    let product_option = null;
+
     if (this.form.value.product_option_id == -1) {
       this.form.value.product_option_id = null;
+      product_option = {
+        option_name: this.product.option_name,
+        option_price: this.product.option_price,
+      }
+    } else {
+      let product_option_id = this.form.value.product_option_id;
+      let product_option_temp = this.product.product_options.find(function (product_option_find) {
+        return product_option_find.id == product_option_id;
+      })
+
+      product_option = {
+        option_name: product_option_temp?.name,
+        option_price: product_option_temp?.price,
+      }
     }
 
-    this.cartService.addToCart(this.form.value).subscribe((response) => {
-      if (response.success == 1) {
-        this.router.navigateByUrl('/gio-hang');
-      } else {
-        alert(response.message);
-      }
-    })
+    // this.cartService.addToCart(this.form.value).subscribe((response) => {
+    //   if (response.success == 1) {
+    //     this.router.navigateByUrl('/gio-hang');
+    //   } else {
+    //     alert(response.message);
+    //   }
+    // })
+
+    
+
+    this.cartService.addToCart(this.form.value, this.product, product_option);
+    this.router.navigateByUrl('/gio-hang');
   }
 
   public minusItem() {
