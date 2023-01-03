@@ -49,27 +49,12 @@ export class OrderComponent implements OnInit {
   public submit() {
     this.submitted = true;
     if (this.form.status == 'VALID') {
-      // var formData = new FormData();
       var data = this.form.value as any;
-      // for (let key of Object.keys(data)) {
-      //   if (data[key] == null || data[key] == '') {
-      //     formData.append(key, '');
-      //   } else {
-      //     formData.append(key, data[key]);
-      //   }
-      // }
-
-      // let cart = [];
-
-      // if (localStorage.getItem('cart')) {
-      //   cart = JSON.parse(localStorage.getItem('cart') || '{}');
-      // }
-
-      // formData.append('cart', cart);
 
       this.cartService.order(data).subscribe((response) => {
         if (response.success == 1) {
           alert(response.message);
+          localStorage.removeItem('cart');
           this.router.navigateByUrl('/');
         } else {
 
