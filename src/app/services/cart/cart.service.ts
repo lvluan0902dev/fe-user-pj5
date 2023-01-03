@@ -72,6 +72,19 @@ export class CartService {
     return this.httpService.post('front/plus-item/' + id, payload, httpOptions);
   }
 
+  /**
+   * 
+   * @param quantity 
+   * @param id - item id
+   */
+  public changeQuantity(quantity: any, id: any) {
+    let payload = {
+      quantity: quantity
+    };
+
+    return this.httpService.post('front/change-quantity/' + id, payload, httpOptions);
+  }
+
   public getTotalPrice() {
     let key = localStorage.getItem('key');
     return this.httpService.get('front/get-cart-total-price/' + key, httpOptions);

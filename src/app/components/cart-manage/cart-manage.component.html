@@ -36,7 +36,7 @@
                                             class="far fa-minus" (click)="minusItem(item.id)"></i></a>
                                     <input name="number[]" type="number"
                                         class="form-control form-control-sm px-6 fs-16 text-center input-quality border-0 h-35px"
-                                        [value]="item.quantity" disabled>
+                                        [value]="item.quantity" [id]="'quantityInput' + item.id" #quantityInput (change)="changeQuantity(quantityInput.value, item.id)">
                                     <a href="javascript:void(0)" class="up position-absolute pos-fixed-right-center pr-2 z-index-2"><i
                                             class="far fa-plus" (click)="plusItem(item.id)"></i>
                                     </a>

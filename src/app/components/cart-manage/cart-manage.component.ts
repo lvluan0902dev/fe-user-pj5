@@ -4,6 +4,7 @@ import { CartItem } from 'src/app/models/cart-item/cart-item.model';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { environment } from 'src/environments/environment';
 
+declare var $: any;
 declare var themeInit: any;
 
 @Component({
@@ -35,10 +36,9 @@ export class CartManageComponent implements OnInit, AfterViewInit {
     this.cartService.getCart().subscribe((response) => {
       if (response.success == 1) {
         this.cart = response.data;
+        this.getTotalPrice();
       }
     });
-
-    this.getTotalPrice();
   }
 
   /**
@@ -61,6 +61,26 @@ export class CartManageComponent implements OnInit, AfterViewInit {
    */
   public minusItem(id: any) {
     this.cartService.minusItem(id).subscribe((response) => {
+      if (response.success == 1) {
+        this.getCart();
+      } else {
+        alert("Error");
+      }
+    });
+  }
+
+  /**
+   * 
+   * @param quantity 
+   * @param id - item id
+   */
+  public changeQuantity(quantity: any, id: any) {
+    if (quantity < 1 || !quantity || quantity == null) {
+      $("#quantityInput" + id).val(1);
+      quantity = 1;
+    }
+
+    this.cartService.changeQuantity(quantity, id).subscribe((response) => {
       if (response.success == 1) {
         this.getCart();
       } else {
