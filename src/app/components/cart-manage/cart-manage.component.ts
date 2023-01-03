@@ -39,16 +39,11 @@ export class CartManageComponent implements OnInit, AfterViewInit {
 
   /**
    * 
-   * @param id - item id
+   * @param index
    */
-  public removeItem(id: any) {
-    this.cartService.removeItem(id).subscribe((response) => {
-      if (response.success == 1) {
-        this.getCart();
-      } else {
-        alert("Error");
-      }
-    });
+  public removeItem(index: any) {
+    this.cartService.removeItem(index);
+    this.getCart();
   }
 
   /**
@@ -63,21 +58,16 @@ export class CartManageComponent implements OnInit, AfterViewInit {
   /**
    * 
    * @param quantity 
-   * @param id - item id
+   * @param index
    */
-  public changeQuantity(quantity: any, id: any) {
+  public changeQuantity(quantity: any, index: any) {
     if (quantity < 1 || !quantity || quantity == null) {
-      $("#quantityInput" + id).val(1);
+      $("#quantityInput" + index).val(1);
       quantity = 1;
     }
 
-    this.cartService.changeQuantity(quantity, id).subscribe((response) => {
-      if (response.success == 1) {
-        this.getCart();
-      } else {
-        alert("Error");
-      }
-    });
+    this.cartService.changeQuantity(quantity, index);
+    this.getCart();
   }
 
   /**

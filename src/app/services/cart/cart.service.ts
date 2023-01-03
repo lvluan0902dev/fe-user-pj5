@@ -58,10 +58,12 @@ export class CartService {
 
   /**
    * 
-   * @param id - item id
+   * @param index
    */
-  public removeItem(id: any) {
-    return this.httpService.delete('front/remove-item/' + id, httpOptions);
+  public removeItem(index: any) {
+    let cart = this.getCart();
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   /**
@@ -93,14 +95,12 @@ export class CartService {
   /**
    * 
    * @param quantity 
-   * @param id - item id
+   * @param index
    */
-  public changeQuantity(quantity: any, id: any) {
-    let payload = {
-      quantity: quantity
-    };
-
-    return this.httpService.post('front/change-quantity/' + id, payload, httpOptions);
+  public changeQuantity(quantity: any, index: any) {
+    let cart = this.getCart();
+    cart[index].quantity = Number(quantity);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   public getTotalPrice() {

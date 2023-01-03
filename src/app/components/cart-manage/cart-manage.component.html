@@ -32,7 +32,7 @@
                                             class="far fa-minus" (click)="minusItem(i)"></i></a>
                                     <input name="number[]" type="number"
                                         class="form-control form-control-sm px-6 fs-16 text-center input-quality border-0 h-35px"
-                                        [value]="item.quantity" [id]="'quantityInput' + item.id" #quantityInput (change)="changeQuantity(quantityInput.value, item.id)">
+                                        [value]="item.quantity" [id]="'quantityInput' + i" #quantityInput (change)="changeQuantity(quantityInput.value, i)">
                                     <a href="javascript:void(0)" class="up position-absolute pos-fixed-right-center pr-2 z-index-2"><i
                                             class="far fa-plus" (click)="plusItem(i)"></i>
                                     </a>
@@ -42,7 +42,7 @@
                                 <p class="mb-0 text-secondary font-weight-bold mr-xl-11">{{item.option_price * item.quantity | number}}đ</p>
                             </td>
                             <td class="align-middle text-right pr-5"><a href="javascript:void(0)" class="d-block"><i
-                                        class="fal fa-times text-body" (click)="removeItem(item.id)"></i></a></td>
+                                        class="fal fa-times text-body" (click)="removeItem(i)"></i></a></td>
                         </tr>
                         <tr>
                             <td class="pb-6 pl-0 position-relative bg-white" style="left: -1px">
